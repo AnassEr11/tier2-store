@@ -172,3 +172,143 @@
   /* ── Initial render (badge hidden when 0) ── */
   renderBag();
 })();
+
+/* ── Product Page Gallery & Size Selector (product.html) ── */
+(function () {
+  // Thumbnail selector
+  document.addEventListener('click', function (e) {
+    const thumb = e.target.closest('.gallery-thumb');
+    if (!thumb) return;
+
+    const mainImg = document.getElementById('gallery-main-img');
+    if (!mainImg) return;
+
+    document.querySelectorAll('.gallery-thumb').forEach(t => t.classList.remove('active'));
+    thumb.classList.add('active');
+
+    const gradient = thumb.dataset.gradient || thumb.style.background;
+    if (gradient) {
+      mainImg.style.background = gradient;
+    }
+  });
+
+  // Size buttons selector
+  document.addEventListener('click', function (e) {
+    const sizeBtn = e.target.closest('.size-btn');
+    if (!sizeBtn) return;
+    document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
+    sizeBtn.classList.add('active');
+  });
+})();
+
+/* ── Navigation Burger Menu (Medium & Small screens) ── */
+(function () {
+  const burgerBtn = document.getElementById('nav-burger-btn');
+  const navMenu = document.getElementById('nav-menu');
+  if (!burgerBtn || !navMenu) return;
+
+  function toggleMenu(e) {
+    e.stopPropagation();
+    const isOpen = navMenu.classList.toggle('open');
+    burgerBtn.classList.toggle('open', isOpen);
+    burgerBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  }
+
+  function closeMenu() {
+    navMenu.classList.remove('open');
+    burgerBtn.classList.remove('open');
+    burgerBtn.setAttribute('aria-expanded', 'false');
+  }
+
+  burgerBtn.addEventListener('click', toggleMenu);
+
+  // Close when clicking any link inside the menu
+  navMenu.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', closeMenu);
+  });
+
+  // Close when clicking outside
+  document.addEventListener('click', function (e) {
+    if (!navMenu.contains(e.target) && !burgerBtn.contains(e.target)) {
+      closeMenu();
+    }
+  });
+
+  // Close on Escape key
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') closeMenu();
+  });
+
+  // Close on scroll
+  let lastY = window.scrollY;
+  window.addEventListener('scroll', function () {
+    if (Math.abs(window.scrollY - lastY) > 30 && navMenu.classList.contains('open')) {
+      closeMenu();
+    }
+    lastY = window.scrollY;
+  }, { passive: true });
+})();
+
+/* ── Navbar Search Overlay ────────────────────────── */
+(function () {
+  const searchBtn     = document.getElementById('nav-search-btn');
+  const searchOverlay = document.getElementById('nav-search-overlay');
+  const searchClose   = document.getElementById('nav-search-close');
+  const searchInput   = document.getElementById('nav-search-input');
+  const searchForm    = document.getElementById('nav-search-form');
+
+  if (!searchBtn || !searchOverlay) return;
+
+  function openSearch() {
+    searchOverlay.classList.add('open');
+    if (searchInput) {
+      setTimeout(() => {
+        searchInput.focus();
+        searchInput.select();
+      }, 60);
+    }
+  }
+
+  function closeSearch() {
+    searchOverlay.classList.remove('open');
+  }
+
+  searchBtn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    if (searchOverlay.classList.contains('open')) {
+      closeSearch();
+    } else {
+      openSearch();
+    }
+  });
+
+  if (searchClose) {
+    searchClose.addEventListener('click', function (e) {
+      e.stopPropagation();
+      closeSearch();
+    });
+  }
+
+  // Close when clicking overlay backdrop outside form
+  searchOverlay.addEventListener('click', function (e) {
+    if (!e.target.closest('.nav-search-form')) {
+      closeSearch();
+    }
+  });
+
+  // Close on Escape key
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && searchOverlay.classList.contains('open')) {
+      closeSearch();
+    }
+  });
+
+  // Form submission: redirect to catalogue.html with search query
+  if (searchForm) {
+    searchForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const val = (searchInput?.value || '').trim();
+      window.location.href = 'catalogue.html' + (val ? '?search=' + encodeURIComponent(val) : '');
+    });
+  }
+})();

@@ -10,10 +10,19 @@
 
   <!-- ═══════════════════════════════ NAVBAR ═══════════════════════════════ -->
   <nav class="navbar" id="navbar">
-    <!-- Left: Contact Us -->
+    <!-- Left: Navigation (burger on medium/small, links on desktop) -->
     <div class="nav-left">
-      <a href="#contact" class="nav-link">Contact Us</a>
-      <a href="catalogue.html" class="nav-link">Catalogue</a>
+      <button class="nav-burger-btn" id="nav-burger-btn" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="burger-lines">
+          <span class="line"></span>
+          <span class="line"></span>
+          <span class="line"></span>
+        </span>
+      </button>
+      <div class="nav-menu" id="nav-menu">
+        <a href="#contact" class="nav-link">Contact Us</a>
+        <a href="catalogue.html" class="nav-link">Catalogue</a>
+      </div>
     </div>
 
     <!-- Center: Logo -->
@@ -24,7 +33,7 @@
     <!-- Right: Icons -->
     <div class="nav-right">
       <!-- Search -->
-      <button class="nav-icon-btn" aria-label="Search">
+      <button class="nav-icon-btn" id="nav-search-btn" aria-label="Search">
         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"
              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="11" cy="11" r="8"/>
@@ -41,6 +50,21 @@
         </svg>
         <span class="bag-count" id="bag-count" aria-label="Items in bag">0</span>
       </button>
+    </div>
+
+    <!-- Search Overlay -->
+    <div class="nav-search-overlay" id="nav-search-overlay">
+      <form class="nav-search-form" id="nav-search-form" action="catalogue.html" method="GET">
+        <svg class="nav-search-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"/>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+        <input type="text" name="search" id="nav-search-input" class="nav-search-input"
+               placeholder="Search products, collections..." autocomplete="off" />
+        <button type="submit" class="nav-search-submit">Search</button>
+        <button type="button" class="nav-search-close" id="nav-search-close" aria-label="Close search">✕</button>
+      </form>
     </div>
   </nav>
 
@@ -103,7 +127,7 @@
       <!-- ── Row 1: Summer Edit ───────────────────────── -->
       <div class="trending-row">
         <p class="trending-row-label">Summer Edit</p>
-        <div class="trending-scroll">
+        <div class="trending-grid">
 
           <!-- Card 1 -->
           <div class="product-card" data-name="Classic Tee" data-price="$39.99">
@@ -197,13 +221,13 @@
             </div>
           </div>
 
-        </div><!-- /.trending-scroll -->
+        </div><!-- /.trending-grid -->
       </div><!-- /.trending-row -->
 
       <!-- ── Row 2: Street Wear ───────────────────────── -->
       <div class="trending-row">
         <p class="trending-row-label">Street Wear</p>
-        <div class="trending-scroll">
+        <div class="trending-grid">
 
           <!-- Card 1 -->
           <div class="product-card" data-name="Cargo Pants" data-price="$64.99">
@@ -297,13 +321,13 @@
             </div>
           </div>
 
-        </div><!-- /.trending-scroll -->
+        </div><!-- /.trending-grid -->
       </div><!-- /.trending-row -->
 
       <!-- ── Row 3: Essentials ────────────────────────── -->
       <div class="trending-row">
         <p class="trending-row-label">Essentials</p>
-        <div class="trending-scroll">
+        <div class="trending-grid">
 
           <!-- Card 1 -->
           <div class="product-card" data-name="White Tee" data-price="$29.99">
@@ -397,7 +421,7 @@
             </div>
           </div>
 
-        </div><!-- /.trending-scroll -->
+        </div><!-- /.trending-grid -->
       </div><!-- /.trending-row -->
 
     </div><!-- /.section-body -->

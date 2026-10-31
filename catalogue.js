@@ -29,20 +29,44 @@ const PRODUCTS = Array.from({ length: 32 }, (_, i) => {
   };
 });
 
-/* ── 2. State ───────────────────────────────────── */
+/* ── 2. State & Search URL param ────────────────── */
 const PER_PAGE = 12;
+
+const urlParams = new URLSearchParams(window.location.search);
+const initialSearch = (urlParams.get('search') || '').trim();
 
 let state = {
   filter: 'all',
   sort: 'default',
+  search: initialSearch,
   page: 1,
 };
 
+// Sync navbar search input with initial search query if present
+const navSearchInput = document.getElementById('nav-search-input');
+if (navSearchInput && initialSearch) {
+  navSearchInput.value = initialSearch;
+}
+
 /* ── 3. Helpers ─────────────────────────────────── */
+function escapeHtml(str) {
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
 function getFiltered() {
   let list = state.filter === 'all'
     ? [...PRODUCTS]
     : PRODUCTS.filter(p => p.category === state.filter);
+
+  // Filter by search query if active
+  if (state.search) {
+    const q = state.search.toLowerCase();
+    list = list.filter(p => p.name.toLowerCase().includes(q) || p.category.toLowerCase().includes(q));
+  }
 
   switch (state.sort) {
     case 'price-asc':  list.sort((a, b) => a.priceAfter - b.priceAfter); break;
@@ -69,10 +93,10 @@ function cardHTML(product) {
     : `<span class="price-after">$${product.priceAfter}</span>`;
 
   return `
-    <div class="product-card">
+    <div class="product-card" data-name="${escapeHtml(product.name)}" data-price="$${product.priceAfter}">
       <div class="card-img"></div>
       <div class="card-body">
-        <p class="card-name">${product.name}</p>
+        <p class="card-name">${escapeHtml(product.name)}</p>
         <div class="card-pricing">
           <div class="card-prices">${priceSection}</div>
           <button class="add-to-cart">${bagSVG()} Add</button>
@@ -93,13 +117,50 @@ function render() {
   const pageItems = filtered.slice(start, start + PER_PAGE);
 
   // Item count
-  document.getElementById('catalogue-count').textContent =
-    `${filtered.length} item${filtered.length !== 1 ? 's' : ''}`;
+  const countEl = document.getElementById('catalogue-count');
+  if (state.search) {
+    countEl.innerHTML = `<span>${filtered.length} item${filtered.length !== 1 ? 's' : ''} for <span class="search-term">"${escapeHtml(state.search)}"</span></span><button id="clear-search-link" class="clear-search-link" type="button" title="Clear search">✕ Clear</button>`;
+    const clearLink = document.getElementById('clear-search-link');
+    if (clearLink) {
+      clearLink.addEventListener('click', () => {
+        state.search = '';
+        state.page = 1;
+        if (navSearchInput) navSearchInput.value = '';
+        const url = new URL(window.location);
+        url.searchParams.delete('search');
+        window.history.replaceState({}, '', url);
+        render();
+      });
+    }
+  } else {
+    countEl.textContent = `${filtered.length} item${filtered.length !== 1 ? 's' : ''}`;
+  }
 
   // Grid
   const grid = document.getElementById('catalogue-grid');
   if (pageItems.length === 0) {
-    grid.innerHTML = '<p class="catalogue-empty">No items found.</p>';
+    if (state.search) {
+      grid.innerHTML = `<div class="catalogue-empty">
+        <p>No items found for "${escapeHtml(state.search)}".</p>
+        <button class="clear-search-btn" id="empty-clear-btn" type="button">View All Products</button>
+      </div>`;
+      const emptyClear = document.getElementById('empty-clear-btn');
+      if (emptyClear) {
+        emptyClear.addEventListener('click', () => {
+          state.search = '';
+          state.filter = 'all';
+          state.page = 1;
+          if (navSearchInput) navSearchInput.value = '';
+          document.querySelectorAll('.filter-btn').forEach(b => b.classList.toggle('active', b.dataset.filter === 'all'));
+          const url = new URL(window.location);
+          url.searchParams.delete('search');
+          window.history.replaceState({}, '', url);
+          render();
+        });
+      }
+    } else {
+      grid.innerHTML = '<p class="catalogue-empty">No items found.</p>';
+    }
   } else {
     grid.innerHTML = pageItems.map(cardHTML).join('');
   }
