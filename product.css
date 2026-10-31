@@ -1,0 +1,315 @@
+/* ═══════════════════════════════════════════════════
+   TIER II — WEBSTORE  |  product.css
+   ═══════════════════════════════════════════════════ */
+
+/* ════════════════════════════════════════════════════
+   PRODUCT DETAIL SECTION
+   ════════════════════════════════════════════════════ */
+.product-detail {
+  margin: calc(var(--nav-height) + 1.5rem) 2rem 2rem;
+  background: rgba(255, 255, 255, 0.93);
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 6px 32px rgba(0, 0, 0, 0.07);
+  padding: 2rem;
+}
+
+/* Two-column layout: image left, info right */
+.product-detail-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+/* Hero image placeholder */
+.product-hero-img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  background: linear-gradient(135deg, #d4d4d4 0%, #b8b8b8 100%);
+  border-radius: var(--radius);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+/* Product info column */
+.product-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+/* Collection sub-label */
+.product-collection {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #888;
+}
+
+/* Product name */
+.product-name {
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #111;
+  line-height: 1.1;
+}
+
+/* Price row */
+.product-prices {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* Inherits .price-before and .price-after from style.css */
+.product-price {
+  font-size: 1.4rem;
+  font-weight: 800;
+}
+
+/* Description */
+.product-description {
+  font-size: 0.92rem;
+  color: #555;
+  line-height: 1.7;
+}
+
+/* Size selector */
+.product-sizes {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.sizes-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #888;
+}
+
+.sizes-grid {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.size-btn {
+  min-width: 44px;
+  height: 44px;
+  padding: 0 0.75rem;
+  border: 1.5px solid #ddd;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #444;
+  background: #fff;
+  cursor: pointer;
+  transition: border-color var(--transition), background var(--transition), color var(--transition);
+}
+
+.size-btn:hover,
+.size-btn.active {
+  border-color: #111;
+  background: #111;
+  color: #fff;
+}
+
+/* Action buttons row */
+.product-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+}
+
+/* Reuse .add-to-cart from style.css, but larger here */
+.product-actions .add-to-cart {
+  flex: 1;
+  min-width: 140px;
+  justify-content: center;
+  padding: 0.75rem 1rem;
+  font-size: 0.85rem;
+  border-radius: var(--radius);
+}
+
+/* Product page WhatsApp button (inline with add-to-cart) */
+.btn-whatsapp-product {
+  flex: 1;
+  min-width: 140px;
+  padding: 0.75rem 1rem;
+  font-size: 0.85rem;
+  border-radius: var(--radius);
+  justify-content: center;
+  text-align: center;
+  letter-spacing: 0.03em;
+  text-transform: none;
+}
+
+/* ════════════════════════════════════════════════════
+   REVIEWS SECTION
+   ════════════════════════════════════════════════════ */
+.reviews-section {
+  margin: 0 2rem 2rem;
+  background: rgba(255, 255, 255, 0.93);
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 6px 32px rgba(0, 0, 0, 0.07);
+}
+
+/* Reuses .section-header-bar from style.css */
+.reviews-count {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #888;
+  letter-spacing: 0.03em;
+}
+
+/* Reviews grid */
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.25rem;
+  padding: 1.75rem;
+}
+
+/* ── Review Card ── */
+.review-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.75);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.review-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow);
+}
+
+/* Square image thumbnail */
+.review-img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: linear-gradient(135deg, #d4d4d4 0%, #b8b8b8 100%);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+}
+
+/* Review body */
+.review-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding: 0.9rem 1rem 1rem;
+}
+
+/* Reviewer name / review title */
+.review-title {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #111;
+}
+
+/* Review text */
+.review-text {
+  font-size: 0.83rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Action buttons row inside review card */
+.review-actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 0.25rem;
+}
+
+/* Small WhatsApp button for review cards */
+.btn-whatsapp-sm {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 0.42rem 0.7rem;
+  background: #25D366;
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  border-radius: 8px;
+  text-transform: uppercase;
+  transition: background var(--transition), transform var(--transition);
+  white-space: nowrap;
+}
+.btn-whatsapp-sm:hover {
+  background: #1ebe5d;
+  transform: scale(1.04);
+}
+
+/* ════════════════════════════════════════════════════
+   RESPONSIVE
+   ════════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  .product-detail {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    padding: 1.25rem;
+  }
+
+  /* Stack image on top of info */
+  .product-detail-inner {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .product-hero-img {
+    aspect-ratio: 4 / 3;
+  }
+
+  .reviews-section {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+
+  .reviews-grid {
+    grid-template-columns: 1fr 1fr;
+    padding: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .product-detail {
+    margin-left: 0.75rem;
+    margin-right: 0.75rem;
+    border-radius: 14px;
+  }
+
+  .reviews-section {
+    margin-left: 0.75rem;
+    margin-right: 0.75rem;
+    border-radius: 14px;
+  }
+
+  .reviews-grid {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+  }
+
+  .product-actions {
+    flex-direction: column;
+  }
+
+  .product-actions .add-to-cart,
+  .btn-whatsapp-product {
+    flex: none;
+    width: 100%;
+  }
+}

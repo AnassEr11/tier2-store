@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Catalogue — Tier II</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="catalogue.css" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════════ NAVBAR ═══════════════════════════════ -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-left">
+      <a href="#contact" class="nav-link">Contact Us</a>
+      <a href="catalogue.html" class="nav-link">Catalogue</a>
+    </div>
+    <div class="nav-center">
+      <a href="index.html" class="nav-logo">TIER II</a>
+    </div>
+    <div class="nav-right">
+      <button class="nav-icon-btn" aria-label="Search">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"/>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+      </button>
+      <button class="nav-icon-btn bag-btn" id="bag-btn" aria-label="Shopping Bag">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <path d="M16 10a4 4 0 0 1-8 0"/>
+        </svg>
+        <span class="bag-count" id="bag-count" aria-label="Items in bag">0</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ════════════════════════════ CATALOGUE BOX ═══════════════════════════ -->
+  <section class="catalogue-section">
+
+    <!-- Header bar with title + item count -->
+    <div class="section-header-bar">
+      <h2 class="section-title">Catalogue</h2>
+      <span class="catalogue-count" id="catalogue-count"></span>
+    </div>
+
+    <!-- Filter / sort bar -->
+    <div class="catalogue-toolbar">
+      <div class="catalogue-filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="tops">Tops</button>
+        <button class="filter-btn" data-filter="bottoms">Bottoms</button>
+        <button class="filter-btn" data-filter="outerwear">Outerwear</button>
+        <button class="filter-btn" data-filter="accessories">Accessories</button>
+      </div>
+      <select class="sort-select" id="sort-select">
+        <option value="default">Sort: Default</option>
+        <option value="price-asc">Price: Low → High</option>
+        <option value="price-desc">Price: High → Low</option>
+        <option value="name-asc">Name: A → Z</option>
+      </select>
+    </div>
+
+    <!-- Grid — populated by JS -->
+    <div class="catalogue-grid" id="catalogue-grid"></div>
+
+    <!-- Pagination -->
+    <div class="pagination" id="pagination"></div>
+
+  </section>
+
+  <!-- ══════════════════════════ CONTACT US ════════════════════════════════ -->
+  <section class="contact" id="contact">
+    <h2 class="section-title">Contact Us</h2>
+    <div class="contact-grid">
+
+      <div class="contact-card">
+        <div class="contact-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15
+                     -.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463
+                     -2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606
+                     .134-.133.298-.347.446-.521.149-.174.198-.298.298-.497.099-.198.05-.371
+                     -.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51
+                     a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016
+                     -1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487
+                     .709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719
+                     2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+            <path d="M11.997 2.003A9.994 9.994 0 0 0 2 12c0 1.762.462 3.413 1.268 4.852L2 22l5.293
+                     -1.249A9.979 9.979 0 0 0 12 22c5.514 0 10-4.486 10-10S17.514 2.003 11.997
+                     2.003zm.003 18.25c-1.63 0-3.14-.44-4.44-1.2l-.318-.19-3.142.741.77-3.07
+                     -.208-.326A8.202 8.202 0 0 1 3.8 12c0-4.52 3.682-8.2 8.2-8.2 4.52 0 8.2
+                     3.68 8.2 8.2 0 4.518-3.68 8.25-8.2 8.253z"/>
+          </svg>
+        </div>
+        <h3 class="contact-label">WhatsApp</h3>
+        <a href="https://wa.me/21300000000" class="contact-value">+213 00 000 0000</a>
+      </div>
+
+      <div class="contact-card">
+        <div class="contact-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
+               fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1
+                     4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.59 2h3a2 2 0 0 1 2 1.72
+                     c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06
+                     6.06l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22
+                     16.92z"/>
+          </svg>
+        </div>
+        <h3 class="contact-label">Phone</h3>
+        <a href="tel:+21300000000" class="contact-value">+213 00 000 0000</a>
+      </div>
+
+      <div class="contact-card">
+        <div class="contact-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
+               fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+        </div>
+        <h3 class="contact-label">Email</h3>
+        <a href="mailto:hello@tier2store.com" class="contact-value">hello@tier2store.com</a>
+      </div>
+
+      <div class="contact-card">
+        <div class="contact-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
+               fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+          </svg>
+        </div>
+        <h3 class="contact-label">Instagram</h3>
+        <a href="https://instagram.com/tier2store" class="contact-value">@tier2store</a>
+      </div>
+
+    </div>
+    <p class="contact-hours">Business hours: <strong>Sat – Thu, 9 AM – 7 PM</strong></p>
+  </section>
+
+  <footer class="footer">
+    <p>© 2026 Tier II. All rights reserved.</p>
+  </footer>
+
+  <!-- ══════════════════════════ BAG PANEL ══════════════════════════════ -->
+  <!-- Overlay (click to close) -->
+  <div class="bag-overlay" id="bag-overlay"></div>
+
+  <!-- Slide-in panel -->
+  <aside class="bag-panel" id="bag-panel" aria-label="Shopping Bag">
+    <div class="bag-panel-header">
+      <span>Your Bag</span>
+      <button class="bag-close-btn" id="bag-close-btn" aria-label="Close bag">✕</button>
+    </div>
+    <div class="bag-items" id="bag-items">
+      <p class="bag-empty" id="bag-empty">Your bag is empty.</p>
+    </div>
+    <div class="bag-checkout">
+      <a id="bag-checkout-btn" href="#" class="btn-whatsapp" target="_blank" rel="noopener">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:middle;margin-right:6px;">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+          <path d="M11.997 2.003A9.994 9.994 0 0 0 2 12c0 1.762.462 3.413 1.268 4.852L2 22l5.293-1.249A9.979 9.979 0 0 0 12 22c5.514 0 10-4.486 10-10S17.514 2.003 11.997 2.003zm.003 18.25c-1.63 0-3.14-.44-4.44-1.2l-.318-.19-3.142.741.77-3.07-.208-.326A8.202 8.202 0 0 1 3.8 12c0-4.52 3.682-8.2 8.2-8.2 4.52 0 8.2 3.68 8.2 8.2 0 4.518-3.68 8.25-8.2 8.253z"/>
+        </svg>
+        Checkout via WhatsApp
+      </a>
+    </div>
+  </aside>
+
+  <script src="script.js"></script>
+  <script src="catalogue.js"></script>
+</body>
+</html>
