@@ -1,8 +1,6 @@
-/* ═══════════════════════════════════════════════════
-   TIER II — WEBSTORE  |  script.js
-   ═══════════════════════════════════════════════════ */
 
-/* ── Hide / Show Navbar on Scroll ─────────────────── */
+
+
 (function () {
   const navbar = document.getElementById('navbar');
   let lastScrollY = window.scrollY;
@@ -12,10 +10,10 @@
     const currentY = window.scrollY;
 
     if (currentY > lastScrollY && currentY > 80) {
-      // Scrolling DOWN — hide navbar
+
       navbar.classList.add('hidden');
     } else {
-      // Scrolling UP — show navbar
+
       navbar.classList.remove('hidden');
     }
 
@@ -31,13 +29,13 @@
   }, { passive: true });
 })();
 
-/* ── Shopping Bag ──────────────────────────────────── */
+
 (function () {
-  /* ── State ── */
+  
   let bag = []; // Array of { id, name, price }
   let nextId = 1;
 
-  /* ── DOM refs (may be null on pages without bag panel) ── */
+  
   const bagBtn     = document.getElementById('bag-btn');
   const bagPanel   = document.getElementById('bag-panel');
   const bagOverlay = document.getElementById('bag-overlay');
@@ -47,7 +45,7 @@
   const bagCountEl = document.getElementById('bag-count');
   const bagCheckoutBtn = document.getElementById('bag-checkout-btn');
 
-  /* ── Open / close ── */
+  
   function openBag() {
     if (!bagPanel) return;
     bagPanel.classList.add('open');
@@ -62,39 +60,35 @@
     document.body.style.overflow = '';
   }
 
-  /* ── Add item ── */
+  
   function addToBag(name, price) {
     bag.push({ id: nextId++, name, price });
     renderBag();
     openBag();
   }
 
-  /* ── Remove item ── */
+  
   function removeFromBag(id) {
     bag = bag.filter(item => item.id !== id);
     renderBag();
   }
 
-  /* ── Render bag UI ── */
+  
   function renderBag() {
     if (!bagItemsEl) return;
 
-    // Update count badge
     if (bagCountEl) {
       bagCountEl.textContent = bag.length;
       bagCountEl.classList.toggle('visible', bag.length > 0);
     }
 
-    // Empty state
     if (bagEmptyEl) {
       bagEmptyEl.style.display = bag.length === 0 ? 'block' : 'none';
     }
 
-    // Remove old item rows (keep the empty-state element)
     const existingItems = bagItemsEl.querySelectorAll('.bag-item');
     existingItems.forEach(el => el.remove());
 
-    // Render each item
     bag.forEach(item => {
       const row = document.createElement('div');
       row.className = 'bag-item';
@@ -110,11 +104,10 @@
       bagItemsEl.appendChild(row);
     });
 
-    // Update WhatsApp checkout link
     updateCheckoutLink();
   }
 
-  /* ── Build WhatsApp checkout URL ── */
+  
   function updateCheckoutLink() {
     if (!bagCheckoutBtn) return;
     if (bag.length === 0) {
@@ -126,7 +119,7 @@
     bagCheckoutBtn.href = `https://wa.me/212600000000?text=${encodeURIComponent(msg)}`;
   }
 
-  /* ── Helper: escape HTML ── */
+  
   function escapeHtml(str) {
     return String(str)
       .replace(/&/g, '&amp;')
@@ -135,17 +128,16 @@
       .replace(/"/g, '&quot;');
   }
 
-  /* ── Wire up bag button ── */
+  
   if (bagBtn) bagBtn.addEventListener('click', openBag);
   if (bagCloseBtn) bagCloseBtn.addEventListener('click', closeBag);
   if (bagOverlay) bagOverlay.addEventListener('click', closeBag);
 
-  /* ── Event delegation: .add-to-cart buttons (index.html static cards) ── */
+  
   document.addEventListener('click', function (e) {
     const btn = e.target.closest('.add-to-cart');
     if (!btn) return;
 
-    // Read name/price from the closest product-card
     const card = btn.closest('.product-card');
     if (card) {
       const name  = card.dataset.name  || card.querySelector('.card-name')?.textContent?.trim()  || 'Item';
@@ -154,13 +146,12 @@
       return;
     }
 
-    // Fallback: product.html "Add to Bag" buttons (use data attrs on button itself)
     const name  = btn.dataset.name  || 'Item';
     const price = btn.dataset.price || '';
     addToBag(name, price);
   });
 
-  /* ── Event delegation: .add-to-bag buttons (product.html) ── */
+  
   document.addEventListener('click', function (e) {
     const btn = e.target.closest('.add-to-bag');
     if (!btn) return;
@@ -169,13 +160,13 @@
     addToBag(name, price);
   });
 
-  /* ── Initial render (badge hidden when 0) ── */
+  
   renderBag();
 })();
 
-/* ── Product Page Gallery & Size Selector (product.html) ── */
+
 (function () {
-  // Thumbnail selector
+
   document.addEventListener('click', function (e) {
     const thumb = e.target.closest('.gallery-thumb');
     if (!thumb) return;
@@ -197,7 +188,6 @@
     }
   });
 
-  // Size buttons selector
   document.addEventListener('click', function (e) {
     const sizeBtn = e.target.closest('.size-btn');
     if (!sizeBtn) return;
@@ -206,10 +196,10 @@
   });
 })();
 
-/* ── Product Card Global Navigation to product.html ── */
+
 (function () {
   document.addEventListener('click', function (e) {
-    // If the click is on an action button, form control, or existing anchor, let it handle its own event
+
     if (e.target.closest('.add-to-cart, .add-to-bag, .bag-item-remove, button, a, select, input, label')) {
       return;
     }
@@ -220,7 +210,7 @@
   });
 })();
 
-/* ── Option Selector (Currency / Language sync) ──── */
+
 (function () {
   const selects = document.querySelectorAll('.nav-select');
   selects.forEach(sel => {
@@ -231,7 +221,7 @@
   });
 })();
 
-/* ── Navigation Burger Menu (Medium & Small screens) ── */
+
 (function () {
   const burgerBtn = document.getElementById('nav-burger-btn');
   const navMenu = document.getElementById('nav-menu');
@@ -252,24 +242,20 @@
 
   burgerBtn.addEventListener('click', toggleMenu);
 
-  // Close when clicking any link inside the menu
   navMenu.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('click', closeMenu);
   });
 
-  // Close when clicking outside
   document.addEventListener('click', function (e) {
     if (!navMenu.contains(e.target) && !burgerBtn.contains(e.target)) {
       closeMenu();
     }
   });
 
-  // Close on Escape key
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape') closeMenu();
   });
 
-  // Close on scroll
   let lastY = window.scrollY;
   window.addEventListener('scroll', function () {
     if (Math.abs(window.scrollY - lastY) > 30 && navMenu.classList.contains('open')) {
@@ -279,7 +265,7 @@
   }, { passive: true });
 })();
 
-/* ── Navbar Search Overlay ────────────────────────── */
+
 (function () {
   const searchBtn     = document.getElementById('nav-search-btn');
   const searchOverlay = document.getElementById('nav-search-overlay');
@@ -319,21 +305,18 @@
     });
   }
 
-  // Close when clicking overlay backdrop outside form
   searchOverlay.addEventListener('click', function (e) {
     if (!e.target.closest('.nav-search-form')) {
       closeSearch();
     }
   });
 
-  // Close on Escape key
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape' && searchOverlay.classList.contains('open')) {
       closeSearch();
     }
   });
 
-  // Form submission: redirect to catalogue.html with search query
   if (searchForm) {
     searchForm.addEventListener('submit', function (e) {
       e.preventDefault();

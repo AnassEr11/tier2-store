@@ -1,9 +1,6 @@
-/* ═══════════════════════════════════════════════════
-   TIER II — catalogue.js
-   Handles: Moroccan apparel data, filtering, sorting, pagination, rendering
-   ═══════════════════════════════════════════════════ */
 
-/* ── 1. Product data (32 Moroccan traditional & modern apparel items) ─────── */
+
+
 const CAFTAN_NAMES = [
   'قفطان ملكي مطرز بالصقلي الحر',
   'قفطان مخملي بالراندة والجوهر',
@@ -50,9 +47,8 @@ const GANDOURA_NAMES = [
 
 const PRODUCTS = [];
 
-// Helper to push items
 function buildProducts() {
-  // 8 Caftans
+
   CAFTAN_NAMES.forEach((name, i) => {
     const base = 850 + (i * 40);
     const hasDiscount = i % 2 === 0;
@@ -67,7 +63,6 @@ function buildProducts() {
     });
   });
 
-  // 8 Djellabas
   DJELLABA_NAMES.forEach((name, i) => {
     const base = 520 + (i * 30);
     const hasDiscount = i % 3 === 0;
@@ -82,7 +77,6 @@ function buildProducts() {
     });
   });
 
-  // 8 Jabadours
   JABADOUR_NAMES.forEach((name, i) => {
     const base = 620 + (i * 35);
     const hasDiscount = i % 2 === 1;
@@ -97,7 +91,6 @@ function buildProducts() {
     });
   });
 
-  // 8 Gandouras & Abayas
   GANDOURA_NAMES.forEach((name, i) => {
     const base = 350 + (i * 25);
     const hasDiscount = i % 3 === 1;
@@ -115,7 +108,7 @@ function buildProducts() {
 
 buildProducts();
 
-/* ── 2. State & URL params ──────────────────────── */
+
 const PER_PAGE = 12;
 
 const urlParams = new URLSearchParams(window.location.search);
@@ -132,20 +125,18 @@ let state = {
   page: 1,
 };
 
-// Sync active filter button on load if cat param present
 if (startingFilter !== 'all') {
   document.querySelectorAll('.filter-btn').forEach(btn => {
     btn.classList.toggle('active', btn.dataset.filter === startingFilter);
   });
 }
 
-// Sync navbar search input with initial search query if present
 const navSearchInput = document.getElementById('nav-search-input');
 if (navSearchInput && initialSearch) {
   navSearchInput.value = initialSearch;
 }
 
-/* ── 3. Helpers ─────────────────────────────────── */
+
 function escapeHtml(str) {
   return String(str)
     .replace(/&/g, '&amp;')
@@ -159,7 +150,6 @@ function getFiltered() {
     ? [...PRODUCTS]
     : PRODUCTS.filter(p => p.category === state.filter);
 
-  // Filter by search query if active
   if (state.search) {
     const q = state.search.toLowerCase();
     list = list.filter(p => p.name.toLowerCase().includes(q) || p.category.toLowerCase().includes(q));
@@ -206,18 +196,16 @@ function cardHTML(product) {
     </div>`;
 }
 
-/* ── 4. Render ──────────────────────────────────── */
+
 function render() {
   const filtered = getFiltered();
   const totalPages = Math.max(1, Math.ceil(filtered.length / PER_PAGE));
 
-  // Clamp page
   if (state.page > totalPages) state.page = totalPages;
 
   const start = (state.page - 1) * PER_PAGE;
   const pageItems = filtered.slice(start, start + PER_PAGE);
 
-  // Item count
   const countEl = document.getElementById('catalogue-count');
   if (state.search) {
     countEl.innerHTML = `<span>${filtered.length} منتج لـ <span class="search-term">"${escapeHtml(state.search)}"</span></span><button id="clear-search-link" class="clear-search-link" type="button" title="مسح تصفية البحث">✕ مسح</button>`;
@@ -237,7 +225,6 @@ function render() {
     countEl.textContent = `${filtered.length} منتج`;
   }
 
-  // Grid
   const grid = document.getElementById('catalogue-grid');
   if (pageItems.length === 0) {
     if (state.search) {
@@ -267,7 +254,6 @@ function render() {
     grid.innerHTML = pageItems.map(cardHTML).join('');
   }
 
-  // Pagination
   renderPagination(totalPages);
 }
 
@@ -278,10 +264,8 @@ function renderPagination(totalPages) {
   const current = state.page;
   let html = '';
 
-  // In RTL, "السابق" takes you to page - 1
   html += `<button class="page-btn" id="pg-prev" ${current === 1 ? 'disabled' : ''} aria-label="الصفحة السابقة">السابق</button>`;
 
-  // Page numbers with smart ellipsis
   const pages = buildPageRange(current, totalPages);
   pages.forEach(p => {
     if (p === '…') {
@@ -291,12 +275,10 @@ function renderPagination(totalPages) {
     }
   });
 
-  // In RTL, "التالي" takes you to page + 1
   html += `<button class="page-btn" id="pg-next" ${current === totalPages ? 'disabled' : ''} aria-label="الصفحة التالية">التالي</button>`;
 
   container.innerHTML = html;
 
-  // Events
   container.querySelector('#pg-prev').addEventListener('click', () => {
     if (state.page > 1) { state.page--; render(); scrollToTop(); }
   });
@@ -312,7 +294,7 @@ function renderPagination(totalPages) {
   });
 }
 
-/** Returns an array of page numbers + '…' strings */
+
 function buildPageRange(current, total) {
   if (total <= 7) return Array.from({ length: total }, (_, i) => i + 1);
 
@@ -335,8 +317,6 @@ function scrollToTop() {
   document.querySelector('.catalogue-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
-/* ── 5. Toolbar Events ──────────────────────────── */
-// Filter buttons
 document.querySelectorAll('.filter-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
@@ -347,7 +327,6 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
   });
 });
 
-// Sort select
 const sortSelect = document.getElementById('sort-select');
 if (sortSelect) {
   sortSelect.addEventListener('change', e => {
@@ -357,5 +336,5 @@ if (sortSelect) {
   });
 }
 
-/* ── 6. Initial render ──────────────────────────── */
+
 render();

@@ -1,10 +1,6 @@
-/* ═══════════════════════════════════════════════════
-   TIER II — WEBSTORE  |  product.css
-   ═══════════════════════════════════════════════════ */
 
-/* ════════════════════════════════════════════════════
-   PRODUCT DETAIL SECTION
-   ════════════════════════════════════════════════════ */
+
+
 .product-detail {
   margin: calc(var(--nav-height) + 1.5rem) 2rem 2rem;
   background: rgba(255, 255, 255, 0.93);
@@ -15,7 +11,7 @@
   padding: 2rem;
 }
 
-/* Two-column layout: image left, info right */
+
 .product-detail-inner {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -23,7 +19,7 @@
   align-items: start;
 }
 
-/* ── Product Gallery (Left half divided into two) ── */
+
 .product-gallery {
   display: flex;
   gap: 1rem;
@@ -32,7 +28,7 @@
   max-height: min(72vh, 520px);
 }
 
-/* Far left: thumbnail column to select images */
+
 .gallery-thumbs {
   display: flex;
   flex-direction: column;
@@ -43,11 +39,11 @@
   padding-right: 2px;
 }
 
-/* Hide scrollbar for thumbs */
+
 .gallery-thumbs::-webkit-scrollbar { width: 3px; }
 .gallery-thumbs::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.15); border-radius: 3px; }
 
-/* Individual thumbnail button */
+
 .gallery-thumb {
   width: 100%;
   aspect-ratio: 1 / 1;
@@ -75,7 +71,7 @@
   opacity: 1;
 }
 
-/* Right: current active large image */
+
 .gallery-main {
   flex: 1;
   height: 100%;
@@ -89,14 +85,14 @@
   transition: background 0.25s ease;
 }
 
-/* Product info column */
+
 .product-info {
   display: flex;
   flex-direction: column;
   gap: 1.1rem;
 }
 
-/* Collection sub-label */
+
 .product-collection {
   font-size: 0.75rem;
   font-weight: 700;
@@ -105,7 +101,7 @@
   color: #888;
 }
 
-/* Product name */
+
 .product-name {
   font-size: clamp(1.6rem, 3vw, 2.4rem);
   font-weight: 800;
@@ -114,27 +110,27 @@
   line-height: 1.1;
 }
 
-/* Price row */
+
 .product-prices {
   display: flex;
   align-items: center;
   gap: 0.75rem;
 }
 
-/* Inherits .price-before and .price-after from style.css */
+
 .product-price {
   font-size: 1.4rem;
   font-weight: 800;
 }
 
-/* Description */
+
 .product-description {
   font-size: 0.92rem;
   color: #555;
   line-height: 1.7;
 }
 
-/* Size selector */
+
 .product-sizes {
   display: flex;
   flex-direction: column;
@@ -176,7 +172,7 @@
   color: #fff;
 }
 
-/* Action buttons row */
+
 .product-actions {
   display: flex;
   gap: 0.75rem;
@@ -184,7 +180,7 @@
   margin-top: 0.5rem;
 }
 
-/* Reuse .add-to-cart from style.css, but larger here */
+
 .product-actions .add-to-cart {
   flex: 1;
   min-width: 140px;
@@ -194,7 +190,7 @@
   border-radius: var(--radius);
 }
 
-/* Product page WhatsApp button (inline with add-to-cart) */
+
 .btn-whatsapp-product {
   flex: 1;
   min-width: 140px;
@@ -208,9 +204,7 @@
   gap: 10px;
 }
 
-/* ════════════════════════════════════════════════════
-   YOU MAY ALSO LIKE (RELATED SECTION)
-   ════════════════════════════════════════════════════ */
+
 .related-section {
   margin: 0 2rem 2rem;
   background: rgba(255, 255, 255, 0.93);
@@ -236,9 +230,7 @@
   height: 220px;
 }
 
-/* ════════════════════════════════════════════════════
-   RESPONSIVE
-   ════════════════════════════════════════════════════ */
+
 @media (max-width: 900px) {
   .related-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -253,7 +245,7 @@
     padding: 1.25rem;
   }
 
-  /* Stack image on top of info */
+  
   .product-detail-inner {
     grid-template-columns: 1fr;
     gap: 1.5rem;
@@ -334,7 +326,7 @@
   }
 }
 
-/* ── RTL Support for Product Page ── */
+
 [dir="rtl"] .gallery-thumbs {
   padding-right: 0;
   padding-left: 2px;

@@ -12,9 +12,9 @@
 </head>
 <body>
 
-  <!-- ═══════════════════════════════ NAVBAR ═══════════════════════════════ -->
+  
   <nav class="navbar" id="navbar">
-    <!-- Left: Navigation (burger on medium/small, links on desktop) -->
+    
     <div class="nav-left">
       <button class="nav-burger-btn" id="nav-burger-btn" aria-label="تبديل القائمة" aria-expanded="false">
         <span class="burger-lines">
@@ -29,14 +29,14 @@
       </div>
     </div>
 
-    <!-- Center: Logo -->
+    
     <div class="nav-center">
       <a href="index.html" class="nav-logo">TIER II</a>
     </div>
 
-    <!-- Right: Currency/Language Selector + Search + Bag -->
+    
     <div class="nav-right">
-      <!-- Option Selector next to search -->
+      
       <div class="nav-select-wrapper">
         <select class="nav-select" id="currency-select" aria-label="العملة واللغة">
           <option value="mad" selected>د.م. MAD</option>
@@ -45,7 +45,7 @@
         </select>
       </div>
 
-      <!-- Search -->
+      
       <button class="nav-icon-btn" id="nav-search-btn" aria-label="البحث">
         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"
              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -54,7 +54,7 @@
         </svg>
       </button>
 
-      <!-- Bag -->
+      
       <button class="nav-icon-btn bag-btn" id="bag-btn" aria-label="حقيبة التسوق">
         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"
              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -66,7 +66,7 @@
       </button>
     </div>
 
-    <!-- Search Overlay -->
+    
     <div class="nav-search-overlay" id="nav-search-overlay">
       <form class="nav-search-form" id="nav-search-form" action="catalogue.html" method="GET">
         <svg class="nav-search-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
@@ -82,13 +82,13 @@
     </div>
   </nav>
 
-  <!-- ══════════════════════════ PRODUCT DETAIL ════════════════════════════ -->
+  
   <section class="product-detail" id="product-detail">
     <div class="product-detail-inner">
 
-      <!-- ── Product Gallery (Right half in RTL: thumbnails far right, main image to its left) ── -->
+      
       <div class="product-gallery">
-        <!-- Thumbnails column -->
+        
         <div class="gallery-thumbs" aria-label="معرض صور المنتج">
           <button type="button" class="gallery-thumb active" aria-label="الإطلالة الأمامية"
                   data-image="imgs/caftan-brown.png"
@@ -112,14 +112,14 @@
           </button>
         </div>
 
-        <!-- Main current active image -->
+        
         <div class="gallery-main" id="gallery-main-img"
              style="background-image: url('imgs/caftan-brown.png');"
              aria-label="صورة المنتج المعروضة">
         </div>
       </div>
 
-      <!-- Product info column -->
+      
       <div class="product-info">
         <p class="product-collection">مجموعة القفطان المغربي</p>
         <h1 class="product-name">قفطان ملكي مطرز بالصقلي الحر</h1>
@@ -131,7 +131,7 @@
           قفطان مغربي أصيل مصنوع من أرفع أقمشة الكريب الحريري الفاخر، مزدان بتطريز يدوي متقن بالصقلي الذهبي مع سفيفة وعقاد معلمين أصليين. تصميم ملكي يجمع بين عراقة التراث المغربي ولمسة عصرية تلائم أرقى المناسبات والأعراس.
         </p>
 
-        <!-- Size selector -->
+        
         <div class="product-sizes">
           <p class="sizes-label">المقاس</p>
           <div class="sizes-grid">
@@ -143,7 +143,7 @@
           </div>
         </div>
 
-        <!-- Action buttons -->
+        
         <div class="product-actions">
           <button class="add-to-bag add-to-cart" data-name="قفطان ملكي مطرز بالصقلي الحر" data-price="890 د.م.">
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
@@ -164,10 +164,10 @@
         </div>
       </div>
 
-    </div><!-- /.product-detail-inner -->
+    </div>
   </section>
 
-  <!-- ══════════════════════════ YOU MAY ALSO LIKE ══════════════════════════ -->
+  
   <section class="related-section" id="related">
     <div class="section-header-bar">
       <h2 class="section-title">قد يعجبك أيضاً</h2>
@@ -176,7 +176,7 @@
 
     <div class="related-grid">
 
-      <!-- Card 1 -->
+      
       <div class="product-card" data-name="جلابة صوفية براندة عصرية" data-price="550 د.م.">
         <a href="product.html" class="card-media-link">
           <div class="card-img" style="background-image: url('imgs/djellaba.png');"></div>
@@ -203,7 +203,7 @@
         </div>
       </div>
 
-      <!-- Card 2 -->
+      
       <div class="product-card" data-name="جبادور فاس فاخر قطعتين" data-price="650 د.م.">
         <a href="product.html" class="card-media-link">
           <div class="card-img" style="background-image: url('imgs/jabadour.png');"></div>
@@ -230,7 +230,7 @@
         </div>
       </div>
 
-      <!-- Card 3 -->
+      
       <div class="product-card" data-name="قندورة سوداء ملكية بالطرز الفاسي" data-price="390 د.م.">
         <a href="product.html" class="card-media-link">
           <div class="card-img" style="background-image: url('imgs/gandoura-black.png');"></div>
@@ -257,7 +257,7 @@
         </div>
       </div>
 
-      <!-- Card 4 -->
+      
       <div class="product-card" data-name="قندورة حريرية مريحة للمناسبات" data-price="340 د.م.">
         <a href="product.html" class="card-media-link">
           <div class="card-img" style="background-image: url('imgs/gandoura.png');"></div>
@@ -284,10 +284,10 @@
         </div>
       </div>
 
-    </div><!-- /.related-grid -->
+    </div>
   </section>
 
-  <!-- ══════════════════════════ CONTACT US ════════════════════════════════ -->
+  
   <section class="contact" id="contact">
     <h2 class="section-title">اتصل بنا</h2>
     <div class="contact-grid">
@@ -363,7 +363,7 @@
     <p>© 2026 TIER II. جميع الحقوق محفوظة.</p>
   </footer>
 
-  <!-- ══════════════════════════ BAG PANEL ════════════════════════════════ -->
+  
   <div class="bag-overlay" id="bag-overlay"></div>
   <aside class="bag-panel" id="bag-panel" aria-label="حقيبة التسوق">
     <div class="bag-panel-header">
