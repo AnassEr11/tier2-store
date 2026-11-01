@@ -1048,19 +1048,40 @@ button {
 
   .collections-grid {
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto;
+    grid-template-rows: 200px 200px;
+    gap: 0.75rem;
     height: auto;
   }
 
-  .collection-box { height: 200px; }
+  .collection-box {
+    height: 100%;
+  }
 
   .collection-col-split {
-    flex-direction: column;
-    height: auto;
-    grid-column: auto;
+    flex-direction: row;
+    grid-column: 1 / -1;
+    height: 100%;
+    gap: 0.75rem;
   }
 
-  .collection-col-split .collection-box { height: 180px; flex: none; }
+  .collection-col-split .collection-box {
+    height: 100%;
+    flex: 1;
+  }
+
+  .collection-overlay {
+    padding: 0.85rem 0.75rem 0.75rem;
+  }
+
+  .collection-title {
+    font-size: 0.88rem;
+  }
+
+  .collection-arrow {
+    width: 24px;
+    height: 24px;
+    font-size: 0.75rem;
+  }
 }
 
 /* ════════════════════════════════════════════════════
