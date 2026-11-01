@@ -151,15 +151,19 @@ button {
 
 /* Center logo */
 .nav-center .nav-logo {
-  font-size: 1.35rem;
-  font-weight: 800;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: #111;
   position: absolute;
   left: 50%;
-  top:50%;
+  top: 50%;
   transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+}
+
+.nav-logo-img {
+  height: 55px;
+  width: auto;
+  display: block;
+  object-fit: contain;
 }
 
 /* Right icons */
@@ -629,6 +633,18 @@ button {
   margin: 0 auto 2rem;
 }
 
+@media (max-width: 768px) {
+  .contact-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 400px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 .contact-card {
   display: flex;
   flex-direction: column;
@@ -1031,12 +1047,12 @@ button {
   }
 
   .collections-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
     grid-template-rows: auto;
     height: auto;
   }
 
-  .collection-box { height: 240px; }
+  .collection-box { height: 200px; }
 
   .collection-col-split {
     flex-direction: column;
@@ -1044,7 +1060,7 @@ button {
     grid-column: auto;
   }
 
-  .collection-col-split .collection-box { height: 200px; flex: none; }
+  .collection-col-split .collection-box { height: 180px; flex: none; }
 }
 
 /* ════════════════════════════════════════════════════
