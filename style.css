@@ -24,7 +24,7 @@ html {
 }
 
 body {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Cairo', 'Tajawal', Roboto, 'Helvetica Neue', Arial, sans-serif;
   color: #111;
   background-color: #f5f5f5;
   /* Frozen background image */
@@ -167,6 +167,58 @@ button {
   display: flex;
   align-items: center;
   gap: 0.75rem;
+}
+
+/* ── Option Selector in Navbar (Language / Currency) ── */
+.nav-select-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.nav-select {
+  appearance: none;
+  -webkit-appearance: none;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(0, 0, 0, 0.16);
+  border-radius: 999px;
+  padding: 0.35rem 1.6rem 0.35rem 0.8rem;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: #111;
+  cursor: pointer;
+  outline: none;
+  font-family: inherit;
+  transition: border-color var(--transition), background var(--transition);
+}
+
+[dir="rtl"] .nav-select {
+  padding: 0.35rem 0.8rem 0.35rem 1.6rem;
+}
+
+.nav-select:hover,
+.nav-select:focus {
+  border-color: #111;
+  background: #fff;
+}
+
+.nav-select-wrapper::after {
+  content: '▾';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.65rem;
+  color: #666;
+  pointer-events: none;
+}
+
+[dir="ltr"] .nav-select-wrapper::after {
+  right: 0.6rem;
+}
+
+[dir="rtl"] .nav-select-wrapper::after {
+  left: 0.6rem;
 }
 .nav-icon-btn {
   display: flex;
@@ -350,11 +402,14 @@ button {
   background: var(--gray-mid);
 }
 
-/* Gray placeholder for image */
+/* Image for collection */
 .collection-img {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, #c8c8c8 0%, #a8a8a8 100%);
+  background-color: #f2f2f2;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
   transition: transform 0.55s ease;
 }
 
@@ -463,6 +518,7 @@ button {
   background: rgba(255,255,255,0.75);
   scroll-snap-align: start;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
 }
 
 .product-card:hover {
@@ -470,12 +526,26 @@ button {
   box-shadow: var(--shadow);
 }
 
-/* Card image placeholder */
+/* Card image */
 .card-img {
   width: 100%;
   height: 220px;
-  background: linear-gradient(135deg, #d4d4d4 0%, #b8b8b8 100%);
+  background-color: #f6f6f6;
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
   border-bottom: 1px solid #ddd;
+}
+
+/* Card media link to product page */
+.card-media-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+.card-media-link:hover .card-name {
+  color: #555;
 }
 
 /* Card body */
@@ -975,4 +1045,50 @@ button {
   }
 
   .collection-col-split .collection-box { height: 200px; flex: none; }
+}
+
+/* ════════════════════════════════════════════════════
+   RTL SUPPORT (ARABIC)
+   ════════════════════════════════════════════════════ */
+[dir="rtl"] {
+  text-align: right;
+}
+
+[dir="rtl"] .bag-panel {
+  right: auto;
+  left: 0;
+  transform: translateX(-100%);
+}
+
+[dir="rtl"] .bag-panel.open {
+  transform: translateX(0);
+}
+
+[dir="rtl"] .nav-menu {
+  left: auto;
+  right: 0;
+  transform-origin: top right;
+}
+
+[dir="rtl"] .nav-search-input {
+  text-align: right;
+}
+
+[dir="rtl"] .card-prices {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .collection-overlay {
+  align-items: flex-start;
+  text-align: right;
+}
+
+[dir="rtl"] .btn-whatsapp svg {
+  margin-right: 0 !important;
+  margin-left: 6px !important;
+}
+
+[dir="rtl"] .clear-search-link {
+  margin-left: 0;
+  margin-right: 0.35rem;
 }

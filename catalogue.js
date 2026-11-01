@@ -1,46 +1,143 @@
 /* ═══════════════════════════════════════════════════
    TIER II — catalogue.js
-   Handles: data, filtering, sorting, pagination, rendering
+   Handles: Moroccan apparel data, filtering, sorting, pagination, rendering
    ═══════════════════════════════════════════════════ */
 
-/* ── 1. Product data (32 placeholder items) ─────── */
-const PRODUCTS = Array.from({ length: 32 }, (_, i) => {
-  const categories = ['tops', 'bottoms', 'outerwear', 'accessories'];
-  const names = [
-    'Classic Tee', 'Cargo Pants', 'Oversized Hoodie', 'Linen Shirt',
-    'Relaxed Shorts', 'Canvas Sneakers', 'Track Jacket', 'Knit Sweater',
-    'Bomber Jacket', 'Wide Trousers', 'Polo Shirt', 'Denim Shorts',
-    'Puffer Vest', 'Bucket Hat', 'Ribbed Tank', 'Chino Pants',
-    'Coach Jacket', 'Fleece Pullover', 'Utility Shorts', 'Snapback Cap',
-    'Mesh Top', 'Jogger Pants', 'Zip Hoodie', 'Corduroy Shirt',
-    'Rain Jacket', 'Pleated Trousers', 'Muscle Tee', 'Swim Shorts',
-    'Sherpa Jacket', 'Crossbody Bag', 'Graphic Tee', 'Biker Shorts',
-  ];
-  const cat = categories[i % 4];
-  const base = 30 + (i * 7) % 90;
-  const discount = Math.random() > 0.35 ? Math.round(base * 0.75) : null;
+/* ── 1. Product data (32 Moroccan traditional & modern apparel items) ─────── */
+const CAFTAN_NAMES = [
+  'قفطان ملكي مطرز بالصقلي الحر',
+  'قفطان مخملي بالراندة والجوهر',
+  'قفطان كريب فاخر بسفيفة ذهبية',
+  'قفطان جوهرة أصيل بتطريز المعلم',
+  'قفطان أطلس حريري بالزواق الفاسي',
+  'قفطان ملكي بصنعة اليد الفاسية',
+  'قفطان سهرة عصري بقصة مغربية',
+  'قفطان بروكار فخم للمناسبات الكبرى'
+];
 
-  return {
-    id: i + 1,
-    name: names[i] || `Item ${i + 1}`,
-    category: cat,
-    priceBefore: discount ? base : null,
-    priceAfter: discount ? discount : base,
-  };
-});
+const DJELLABA_NAMES = [
+  'جلابة صوفية براندة عصرية',
+  'جلابة مليفة بتطريز المعلم الأصيل',
+  'جلابة كريب ناعمة بخياطة الدبانة',
+  'جلابة شتوية دافئة بالقب الملكي',
+  'جلابة سوسية مطروزة بالحرير الطبيعي',
+  'جلابة كاجوال يومية بالعقاد الحريرية',
+  'جلابة خفيفة براندة الشبيكة',
+  'جلابة فاسية ببرشمان يدوي متقن'
+];
 
-/* ── 2. State & Search URL param ────────────────── */
+const JABADOUR_NAMES = [
+  'جبادور فاس فاخر قطعتين',
+  'جبادور سوسي بتطريز تقليدي راق',
+  'جبادور مخملي بالأزرار الحريرية',
+  'جبادور ملكي للمناسبات الرسمية والأعياد',
+  'جبادور شبابي عصري بتطريز يدوي',
+  'جبادور كريب فاخر ثلاث قطع بالصدرة',
+  'جبادور حريري بصنعة المعلم الأصيل',
+  'جبادور تقليدي بالزواق الرباطي المميز'
+];
+
+const GANDOURA_NAMES = [
+  'قندورة سوداء ملكية بالطرز الفاسي',
+  'قندورة حريرية مريحة للمناسبات',
+  'عباية كيمونو عصرية بالطرز المغربي',
+  'قندورة صيفية خفيفة بالعقاد الحريرية',
+  'قندورة قطنية مريحة للبيت والاستجمام',
+  'عباية بشت مغربية فاخرة بتطريز ذهبي',
+  'قندورة مطروزة بنصف طوق أصيل',
+  'قندورة تقليدية بأكمام كيمونو أنيقة'
+];
+
+const PRODUCTS = [];
+
+// Helper to push items
+function buildProducts() {
+  // 8 Caftans
+  CAFTAN_NAMES.forEach((name, i) => {
+    const base = 850 + (i * 40);
+    const hasDiscount = i % 2 === 0;
+    const priceAfter = hasDiscount ? base - 120 : base;
+    PRODUCTS.push({
+      id: PRODUCTS.length + 1,
+      name,
+      category: 'caftans',
+      image: i % 2 === 0 ? 'imgs/caftan-brown.png' : 'imgs/product-secondary-1.png',
+      priceBefore: hasDiscount ? base : null,
+      priceAfter: priceAfter
+    });
+  });
+
+  // 8 Djellabas
+  DJELLABA_NAMES.forEach((name, i) => {
+    const base = 520 + (i * 30);
+    const hasDiscount = i % 3 === 0;
+    const priceAfter = hasDiscount ? base - 80 : base;
+    PRODUCTS.push({
+      id: PRODUCTS.length + 1,
+      name,
+      category: 'djellabas',
+      image: 'imgs/djellaba.png',
+      priceBefore: hasDiscount ? base : null,
+      priceAfter: priceAfter
+    });
+  });
+
+  // 8 Jabadours
+  JABADOUR_NAMES.forEach((name, i) => {
+    const base = 620 + (i * 35);
+    const hasDiscount = i % 2 === 1;
+    const priceAfter = hasDiscount ? base - 90 : base;
+    PRODUCTS.push({
+      id: PRODUCTS.length + 1,
+      name,
+      category: 'jabadours',
+      image: 'imgs/jabadour.png',
+      priceBefore: hasDiscount ? base : null,
+      priceAfter: priceAfter
+    });
+  });
+
+  // 8 Gandouras & Abayas
+  GANDOURA_NAMES.forEach((name, i) => {
+    const base = 350 + (i * 25);
+    const hasDiscount = i % 3 === 1;
+    const priceAfter = hasDiscount ? base - 60 : base;
+    PRODUCTS.push({
+      id: PRODUCTS.length + 1,
+      name,
+      category: 'gandouras',
+      image: i % 2 === 0 ? 'imgs/gandoura-black.png' : 'imgs/gandoura.png',
+      priceBefore: hasDiscount ? base : null,
+      priceAfter: priceAfter
+    });
+  });
+}
+
+buildProducts();
+
+/* ── 2. State & URL params ──────────────────────── */
 const PER_PAGE = 12;
 
 const urlParams = new URLSearchParams(window.location.search);
 const initialSearch = (urlParams.get('search') || '').trim();
+const initialCat = (urlParams.get('cat') || '').trim().toLowerCase();
+
+const validCats = ['caftans', 'djellabas', 'jabadours', 'gandouras'];
+const startingFilter = validCats.includes(initialCat) ? initialCat : 'all';
 
 let state = {
-  filter: 'all',
+  filter: startingFilter,
   sort: 'default',
   search: initialSearch,
   page: 1,
 };
+
+// Sync active filter button on load if cat param present
+if (startingFilter !== 'all') {
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.filter === startingFilter);
+  });
+}
 
 // Sync navbar search input with initial search query if present
 const navSearchInput = document.getElementById('nav-search-input');
@@ -71,7 +168,7 @@ function getFiltered() {
   switch (state.sort) {
     case 'price-asc':  list.sort((a, b) => a.priceAfter - b.priceAfter); break;
     case 'price-desc': list.sort((a, b) => b.priceAfter - a.priceAfter); break;
-    case 'name-asc':   list.sort((a, b) => a.name.localeCompare(b.name)); break;
+    case 'name-asc':   list.sort((a, b) => a.name.localeCompare(b.name, 'ar')); break;
   }
 
   return list;
@@ -88,18 +185,22 @@ function bagSVG() {
 
 function cardHTML(product) {
   const priceSection = product.priceBefore
-    ? `<span class="price-before">$${product.priceBefore}</span>
-       <span class="price-after">$${product.priceAfter}</span>`
-    : `<span class="price-after">$${product.priceAfter}</span>`;
+    ? `<span class="price-before">${product.priceBefore} د.م.</span>
+       <span class="price-after">${product.priceAfter} د.م.</span>`
+    : `<span class="price-after">${product.priceAfter} د.م.</span>`;
 
   return `
-    <div class="product-card" data-name="${escapeHtml(product.name)}" data-price="$${product.priceAfter}">
-      <div class="card-img"></div>
-      <div class="card-body">
-        <p class="card-name">${escapeHtml(product.name)}</p>
+    <div class="product-card" data-name="${escapeHtml(product.name)}" data-price="${product.priceAfter} د.م.">
+      <a href="product.html" class="card-media-link">
+        <div class="card-img" style="background-image: url('${product.image}');"></div>
+        <div class="card-body">
+          <p class="card-name">${escapeHtml(product.name)}</p>
+        </div>
+      </a>
+      <div class="card-body" style="padding-top:0;">
         <div class="card-pricing">
           <div class="card-prices">${priceSection}</div>
-          <button class="add-to-cart">${bagSVG()} Add</button>
+          <button class="add-to-cart">${bagSVG()} أضف</button>
         </div>
       </div>
     </div>`;
@@ -119,7 +220,7 @@ function render() {
   // Item count
   const countEl = document.getElementById('catalogue-count');
   if (state.search) {
-    countEl.innerHTML = `<span>${filtered.length} item${filtered.length !== 1 ? 's' : ''} for <span class="search-term">"${escapeHtml(state.search)}"</span></span><button id="clear-search-link" class="clear-search-link" type="button" title="Clear search">✕ Clear</button>`;
+    countEl.innerHTML = `<span>${filtered.length} منتج لـ <span class="search-term">"${escapeHtml(state.search)}"</span></span><button id="clear-search-link" class="clear-search-link" type="button" title="مسح تصفية البحث">✕ مسح</button>`;
     const clearLink = document.getElementById('clear-search-link');
     if (clearLink) {
       clearLink.addEventListener('click', () => {
@@ -133,7 +234,7 @@ function render() {
       });
     }
   } else {
-    countEl.textContent = `${filtered.length} item${filtered.length !== 1 ? 's' : ''}`;
+    countEl.textContent = `${filtered.length} منتج`;
   }
 
   // Grid
@@ -141,8 +242,8 @@ function render() {
   if (pageItems.length === 0) {
     if (state.search) {
       grid.innerHTML = `<div class="catalogue-empty">
-        <p>No items found for "${escapeHtml(state.search)}".</p>
-        <button class="clear-search-btn" id="empty-clear-btn" type="button">View All Products</button>
+        <p>لم يتم العثور على أي منتج يطابق "${escapeHtml(state.search)}".</p>
+        <button class="clear-search-btn" id="empty-clear-btn" type="button">عرض جميع المنتجات</button>
       </div>`;
       const emptyClear = document.getElementById('empty-clear-btn');
       if (emptyClear) {
@@ -154,12 +255,13 @@ function render() {
           document.querySelectorAll('.filter-btn').forEach(b => b.classList.toggle('active', b.dataset.filter === 'all'));
           const url = new URL(window.location);
           url.searchParams.delete('search');
+          url.searchParams.delete('cat');
           window.history.replaceState({}, '', url);
           render();
         });
       }
     } else {
-      grid.innerHTML = '<p class="catalogue-empty">No items found.</p>';
+      grid.innerHTML = `<div class="catalogue-empty"><p>لا توجد منتجات متوفرة في هذه الفئة حالياً.</p></div>`;
     }
   } else {
     grid.innerHTML = pageItems.map(cardHTML).join('');
@@ -176,8 +278,8 @@ function renderPagination(totalPages) {
   const current = state.page;
   let html = '';
 
-  // Prev button
-  html += `<button class="page-btn" id="pg-prev" ${current === 1 ? 'disabled' : ''}>‹</button>`;
+  // In RTL, "السابق" takes you to page - 1
+  html += `<button class="page-btn" id="pg-prev" ${current === 1 ? 'disabled' : ''} aria-label="الصفحة السابقة">السابق</button>`;
 
   // Page numbers with smart ellipsis
   const pages = buildPageRange(current, totalPages);
@@ -189,8 +291,8 @@ function renderPagination(totalPages) {
     }
   });
 
-  // Next button
-  html += `<button class="page-btn" id="pg-next" ${current === totalPages ? 'disabled' : ''}>›</button>`;
+  // In RTL, "التالي" takes you to page + 1
+  html += `<button class="page-btn" id="pg-next" ${current === totalPages ? 'disabled' : ''} aria-label="الصفحة التالية">التالي</button>`;
 
   container.innerHTML = html;
 
@@ -233,7 +335,8 @@ function scrollToTop() {
   document.querySelector('.catalogue-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
-/* ── 5. Event listeners ─────────────────────────── */
+/* ── 5. Toolbar Events ──────────────────────────── */
+// Filter buttons
 document.querySelectorAll('.filter-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
@@ -244,11 +347,15 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
   });
 });
 
-document.getElementById('sort-select').addEventListener('change', e => {
-  state.sort = e.target.value;
-  state.page = 1;
-  render();
-});
+// Sort select
+const sortSelect = document.getElementById('sort-select');
+if (sortSelect) {
+  sortSelect.addEventListener('change', e => {
+    state.sort = e.target.value;
+    state.page = 1;
+    render();
+  });
+}
 
-/* ── 6. Init ────────────────────────────────────── */
+/* ── 6. Initial render ──────────────────────────── */
 render();

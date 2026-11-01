@@ -1,9 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Catalogue — Tier II</title>
+  <title>الكتالوج — TIER II للأزياء المغربية الراقية</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="catalogue.css" />
 </head>
@@ -12,7 +15,7 @@
   <!-- ═══════════════════════════════ NAVBAR ═══════════════════════════════ -->
   <nav class="navbar" id="navbar">
     <div class="nav-left">
-      <button class="nav-burger-btn" id="nav-burger-btn" aria-label="Toggle navigation menu" aria-expanded="false">
+      <button class="nav-burger-btn" id="nav-burger-btn" aria-label="تبديل القائمة" aria-expanded="false">
         <span class="burger-lines">
           <span class="line"></span>
           <span class="line"></span>
@@ -20,29 +23,41 @@
         </span>
       </button>
       <div class="nav-menu" id="nav-menu">
-        <a href="#contact" class="nav-link">Contact Us</a>
-        <a href="catalogue.html" class="nav-link">Catalogue</a>
+        <a href="catalogue.html" class="nav-link">الكتالوج</a>
+        <a href="#contact" class="nav-link">اتصل بنا</a>
       </div>
     </div>
     <div class="nav-center">
       <a href="index.html" class="nav-logo">TIER II</a>
     </div>
     <div class="nav-right">
-      <button class="nav-icon-btn" id="nav-search-btn" aria-label="Search">
+      <!-- Option Selector next to search -->
+      <div class="nav-select-wrapper">
+        <select class="nav-select" id="currency-select" aria-label="العملة واللغة">
+          <option value="mad" selected>د.م. MAD</option>
+          <option value="usd">$ USD</option>
+          <option value="eur">€ EUR</option>
+        </select>
+      </div>
+
+      <!-- Search -->
+      <button class="nav-icon-btn" id="nav-search-btn" aria-label="البحث">
         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"
              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="11" cy="11" r="8"/>
           <line x1="21" y1="21" x2="16.65" y2="16.65"/>
         </svg>
       </button>
-      <button class="nav-icon-btn bag-btn" id="bag-btn" aria-label="Shopping Bag">
+
+      <!-- Bag -->
+      <button class="nav-icon-btn bag-btn" id="bag-btn" aria-label="حقيبة التسوق">
         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"
              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
           <line x1="3" y1="6" x2="21" y2="6"/>
           <path d="M16 10a4 4 0 0 1-8 0"/>
         </svg>
-        <span class="bag-count" id="bag-count" aria-label="Items in bag">0</span>
+        <span class="bag-count" id="bag-count" aria-label="عدد المنتجات في الحقيبة">0</span>
       </button>
     </div>
 
@@ -55,9 +70,9 @@
           <line x1="21" y1="21" x2="16.65" y2="16.65"/>
         </svg>
         <input type="text" name="search" id="nav-search-input" class="nav-search-input"
-               placeholder="Search products, collections..." autocomplete="off" />
-        <button type="submit" class="nav-search-submit">Search</button>
-        <button type="button" class="nav-search-close" id="nav-search-close" aria-label="Close search">✕</button>
+               placeholder="ابحث عن قفطان، جلابة، جبادور، قندورة..." autocomplete="off" />
+        <button type="submit" class="nav-search-submit">بحث</button>
+        <button type="button" class="nav-search-close" id="nav-search-close" aria-label="إغلاق البحث">✕</button>
       </form>
     </div>
   </nav>
@@ -67,24 +82,24 @@
 
     <!-- Header bar with title + item count -->
     <div class="section-header-bar">
-      <h2 class="section-title">Catalogue</h2>
+      <h2 class="section-title">كتالوج المنتجات</h2>
       <span class="catalogue-count" id="catalogue-count"></span>
     </div>
 
     <!-- Filter / sort bar -->
     <div class="catalogue-toolbar">
       <div class="catalogue-filters">
-        <button class="filter-btn active" data-filter="all">All</button>
-        <button class="filter-btn" data-filter="tops">Tops</button>
-        <button class="filter-btn" data-filter="bottoms">Bottoms</button>
-        <button class="filter-btn" data-filter="outerwear">Outerwear</button>
-        <button class="filter-btn" data-filter="accessories">Accessories</button>
+        <button class="filter-btn active" data-filter="all">الكل</button>
+        <button class="filter-btn" data-filter="caftans">قفاطين</button>
+        <button class="filter-btn" data-filter="djellabas">جلابات</button>
+        <button class="filter-btn" data-filter="jabadours">جبادور</button>
+        <button class="filter-btn" data-filter="gandouras">قندورة وعبايات</button>
       </div>
       <select class="sort-select" id="sort-select">
-        <option value="default">Sort: Default</option>
-        <option value="price-asc">Price: Low → High</option>
-        <option value="price-desc">Price: High → Low</option>
-        <option value="name-asc">Name: A → Z</option>
+        <option value="default">الترتيب: الافتراضي</option>
+        <option value="price-asc">السعر: من الأقل للأعلى</option>
+        <option value="price-desc">السعر: من الأعلى للأقل</option>
+        <option value="name-asc">الاسم: أ إلى ي</option>
       </select>
     </div>
 
@@ -98,7 +113,7 @@
 
   <!-- ══════════════════════════ CONTACT US ════════════════════════════════ -->
   <section class="contact" id="contact">
-    <h2 class="section-title">Contact Us</h2>
+    <h2 class="section-title">اتصل بنا</h2>
     <div class="contact-grid">
 
       <div class="contact-card">
@@ -120,8 +135,8 @@
                      3.68 8.2 8.2 0 4.518-3.68 8.25-8.2 8.253z"/>
           </svg>
         </div>
-        <h3 class="contact-label">WhatsApp</h3>
-        <a href="https://wa.me/21300000000" class="contact-value">+213 00 000 0000</a>
+        <h3 class="contact-label">واتساب</h3>
+        <a href="https://wa.me/212600000000" class="contact-value" dir="ltr">+212 600 000 000</a>
       </div>
 
       <div class="contact-card">
@@ -135,8 +150,8 @@
                      16.92z"/>
           </svg>
         </div>
-        <h3 class="contact-label">Phone</h3>
-        <a href="tel:+21300000000" class="contact-value">+213 00 000 0000</a>
+        <h3 class="contact-label">الهاتف</h3>
+        <a href="tel:+212522000000" class="contact-value" dir="ltr">+212 522 000 000</a>
       </div>
 
       <div class="contact-card">
@@ -147,8 +162,8 @@
             <polyline points="22,6 12,13 2,6"/>
           </svg>
         </div>
-        <h3 class="contact-label">Email</h3>
-        <a href="mailto:hello@tier2store.com" class="contact-value">hello@tier2store.com</a>
+        <h3 class="contact-label">البريد الإلكتروني</h3>
+        <a href="mailto:contact@tier2.ma" class="contact-value">contact@tier2.ma</a>
       </div>
 
       <div class="contact-card">
@@ -160,38 +175,35 @@
             <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
           </svg>
         </div>
-        <h3 class="contact-label">Instagram</h3>
-        <a href="https://instagram.com/tier2store" class="contact-value">@tier2store</a>
+        <h3 class="contact-label">إنستغرام</h3>
+        <a href="https://instagram.com/tier2.ma" class="contact-value" dir="ltr">@tier2.ma</a>
       </div>
 
     </div>
-    <p class="contact-hours">Business hours: <strong>Sat – Thu, 9 AM – 7 PM</strong></p>
+    <p class="contact-hours">أوقات العمل: <strong>من الإثنين إلى السبت، 9:00 ص – 8:00 م</strong></p>
   </section>
 
   <footer class="footer">
-    <p>© 2026 Tier II. All rights reserved.</p>
+    <p>© 2026 TIER II. جميع الحقوق محفوظة.</p>
   </footer>
 
-  <!-- ══════════════════════════ BAG PANEL ══════════════════════════════ -->
-  <!-- Overlay (click to close) -->
+  <!-- ══════════════════════════ BAG PANEL ════════════════════════════════ -->
   <div class="bag-overlay" id="bag-overlay"></div>
-
-  <!-- Slide-in panel -->
-  <aside class="bag-panel" id="bag-panel" aria-label="Shopping Bag">
+  <aside class="bag-panel" id="bag-panel" aria-label="حقيبة التسوق">
     <div class="bag-panel-header">
-      <span>Your Bag</span>
-      <button class="bag-close-btn" id="bag-close-btn" aria-label="Close bag">✕</button>
+      <span>حقيبة التسوق</span>
+      <button class="bag-close-btn" id="bag-close-btn" aria-label="إغلاق الحقيبة">✕</button>
     </div>
     <div class="bag-items" id="bag-items">
-      <p class="bag-empty" id="bag-empty">Your bag is empty.</p>
+      <p class="bag-empty" id="bag-empty">حقيبتك فارغة حالياً.</p>
     </div>
     <div class="bag-checkout">
       <a id="bag-checkout-btn" href="#" class="btn-whatsapp" target="_blank" rel="noopener">
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:middle;margin-right:6px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
           <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
           <path d="M11.997 2.003A9.994 9.994 0 0 0 2 12c0 1.762.462 3.413 1.268 4.852L2 22l5.293-1.249A9.979 9.979 0 0 0 12 22c5.514 0 10-4.486 10-10S17.514 2.003 11.997 2.003zm.003 18.25c-1.63 0-3.14-.44-4.44-1.2l-.318-.19-3.142.741.77-3.07-.208-.326A8.202 8.202 0 0 1 3.8 12c0-4.52 3.682-8.2 8.2-8.2 4.52 0 8.2 3.68 8.2 8.2 0 4.518-3.68 8.25-8.2 8.253z"/>
         </svg>
-        Checkout via WhatsApp
+        إتمام الطلب عبر واتساب
       </a>
     </div>
   </aside>

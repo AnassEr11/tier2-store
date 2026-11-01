@@ -122,8 +122,8 @@
       return;
     }
     const lines = bag.map(item => `• ${item.name} — ${item.price}`).join('\n');
-    const msg = `Hello! I'd like to order the following items:\n\n${lines}\n\nPlease confirm availability.`;
-    bagCheckoutBtn.href = `https://wa.me/21300000000?text=${encodeURIComponent(msg)}`;
+    const msg = `مرحباً! أود طلب المنتجات التالية من متجر TIER II:\n\n${lines}\n\nيرجى تأكيد التوفر والتوصيل.`;
+    bagCheckoutBtn.href = `https://wa.me/212600000000?text=${encodeURIComponent(msg)}`;
   }
 
   /* ── Helper: escape HTML ── */
@@ -186,9 +186,14 @@
     document.querySelectorAll('.gallery-thumb').forEach(t => t.classList.remove('active'));
     thumb.classList.add('active');
 
-    const gradient = thumb.dataset.gradient || thumb.style.background;
-    if (gradient) {
-      mainImg.style.background = gradient;
+    const imgUrl = thumb.dataset.image;
+    if (imgUrl) {
+      mainImg.style.backgroundImage = `url('${imgUrl}')`;
+    } else {
+      const gradient = thumb.dataset.gradient || thumb.style.background;
+      if (gradient) {
+        mainImg.style.background = gradient;
+      }
     }
   });
 
@@ -198,6 +203,31 @@
     if (!sizeBtn) return;
     document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
     sizeBtn.classList.add('active');
+  });
+})();
+
+/* ── Product Card Global Navigation to product.html ── */
+(function () {
+  document.addEventListener('click', function (e) {
+    // If the click is on an action button, form control, or existing anchor, let it handle its own event
+    if (e.target.closest('.add-to-cart, .add-to-bag, .bag-item-remove, button, a, select, input, label')) {
+      return;
+    }
+    const card = e.target.closest('.product-card');
+    if (card) {
+      window.location.href = 'product.html';
+    }
+  });
+})();
+
+/* ── Option Selector (Currency / Language sync) ──── */
+(function () {
+  const selects = document.querySelectorAll('.nav-select');
+  selects.forEach(sel => {
+    sel.addEventListener('change', function () {
+      const val = this.value;
+      selects.forEach(s => { s.value = val; });
+    });
   });
 })();
 

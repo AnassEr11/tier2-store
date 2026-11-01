@@ -1,9 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Product — Tier II</title>
+  <title>قفطان ملكي مطرز بالصقلي الحر — TIER II</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="product.css" />
 </head>
@@ -11,9 +14,9 @@
 
   <!-- ═══════════════════════════════ NAVBAR ═══════════════════════════════ -->
   <nav class="navbar" id="navbar">
-    <!-- Left: Contact Us + Catalogue -->
+    <!-- Left: Navigation (burger on medium/small, links on desktop) -->
     <div class="nav-left">
-      <button class="nav-burger-btn" id="nav-burger-btn" aria-label="Toggle navigation menu" aria-expanded="false">
+      <button class="nav-burger-btn" id="nav-burger-btn" aria-label="تبديل القائمة" aria-expanded="false">
         <span class="burger-lines">
           <span class="line"></span>
           <span class="line"></span>
@@ -21,8 +24,8 @@
         </span>
       </button>
       <div class="nav-menu" id="nav-menu">
-        <a href="#contact" class="nav-link">Contact Us</a>
-        <a href="catalogue.html" class="nav-link">Catalogue</a>
+        <a href="catalogue.html" class="nav-link">الكتالوج</a>
+        <a href="#contact" class="nav-link">اتصل بنا</a>
       </div>
     </div>
 
@@ -31,25 +34,35 @@
       <a href="index.html" class="nav-logo">TIER II</a>
     </div>
 
-    <!-- Right: Icons -->
+    <!-- Right: Currency/Language Selector + Search + Bag -->
     <div class="nav-right">
+      <!-- Option Selector next to search -->
+      <div class="nav-select-wrapper">
+        <select class="nav-select" id="currency-select" aria-label="العملة واللغة">
+          <option value="mad" selected>د.م. MAD</option>
+          <option value="usd">$ USD</option>
+          <option value="eur">€ EUR</option>
+        </select>
+      </div>
+
       <!-- Search -->
-      <button class="nav-icon-btn" id="nav-search-btn" aria-label="Search">
+      <button class="nav-icon-btn" id="nav-search-btn" aria-label="البحث">
         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"
              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="11" cy="11" r="8"/>
           <line x1="21" y1="21" x2="16.65" y2="16.65"/>
         </svg>
       </button>
+
       <!-- Bag -->
-      <button class="nav-icon-btn bag-btn" id="bag-btn" aria-label="Shopping Bag">
+      <button class="nav-icon-btn bag-btn" id="bag-btn" aria-label="حقيبة التسوق">
         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"
              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
           <line x1="3" y1="6" x2="21" y2="6"/>
           <path d="M16 10a4 4 0 0 1-8 0"/>
         </svg>
-        <span class="bag-count" id="bag-count" aria-label="Items in bag">0</span>
+        <span class="bag-count" id="bag-count" aria-label="عدد المنتجات في الحقيبة">0</span>
       </button>
     </div>
 
@@ -62,9 +75,9 @@
           <line x1="21" y1="21" x2="16.65" y2="16.65"/>
         </svg>
         <input type="text" name="search" id="nav-search-input" class="nav-search-input"
-               placeholder="Search products, collections..." autocomplete="off" />
-        <button type="submit" class="nav-search-submit">Search</button>
-        <button type="button" class="nav-search-close" id="nav-search-close" aria-label="Close search">✕</button>
+               placeholder="ابحث عن قفطان، جلابة، جبادور، قندورة..." autocomplete="off" />
+        <button type="submit" class="nav-search-submit">بحث</button>
+        <button type="button" class="nav-search-close" id="nav-search-close" aria-label="إغلاق البحث">✕</button>
       </form>
     </div>
   </nav>
@@ -73,51 +86,54 @@
   <section class="product-detail" id="product-detail">
     <div class="product-detail-inner">
 
-      <!-- ── Product Gallery (Left half divided: far left thumbnails, right main image) ── -->
+      <!-- ── Product Gallery (Right half in RTL: thumbnails far right, main image to its left) ── -->
       <div class="product-gallery">
-        <!-- Far left: images to select -->
-        <div class="gallery-thumbs" aria-label="Product image selection">
-          <button type="button" class="gallery-thumb active" aria-label="Front View"
-                  data-gradient="linear-gradient(135deg, #e4e4e4 0%, #c8c8c8 100%)"
-                  style="background: linear-gradient(135deg, #e4e4e4 0%, #c8c8c8 100%);">
+        <!-- Thumbnails column -->
+        <div class="gallery-thumbs" aria-label="معرض صور المنتج">
+          <button type="button" class="gallery-thumb active" aria-label="الإطلالة الأمامية"
+                  data-image="imgs/caftan-brown.png"
+                  style="background-image: url('imgs/caftan-brown.png');">
           </button>
-          <button type="button" class="gallery-thumb" aria-label="Back View"
-                  data-gradient="linear-gradient(135deg, #d2d2d2 0%, #adadad 100%)"
-                  style="background: linear-gradient(135deg, #d2d2d2 0%, #adadad 100%);">
+          <button type="button" class="gallery-thumb" aria-label="تفاصيل التطريز"
+                  data-image="imgs/product-secondary-1.png"
+                  style="background-image: url('imgs/product-secondary-1.png');">
           </button>
-          <button type="button" class="gallery-thumb" aria-label="Side View"
-                  data-gradient="linear-gradient(135deg, #bcbcbc 0%, #909090 100%)"
-                  style="background: linear-gradient(135deg, #bcbcbc 0%, #909090 100%);">
+          <button type="button" class="gallery-thumb" aria-label="إطلالة الجلابة التراثية"
+                  data-image="imgs/djellaba.png"
+                  style="background-image: url('imgs/djellaba.png');">
           </button>
-          <button type="button" class="gallery-thumb" aria-label="Detail View"
-                  data-gradient="linear-gradient(135deg, #9e9e9e 0%, #6c6c6c 100%)"
-                  style="background: linear-gradient(135deg, #9e9e9e 0%, #6c6c6c 100%);">
+          <button type="button" class="gallery-thumb" aria-label="إطلالة الجبادور الفاخر"
+                  data-image="imgs/jabadour.png"
+                  style="background-image: url('imgs/jabadour.png');">
+          </button>
+          <button type="button" class="gallery-thumb" aria-label="تفاصيل الصنعة المغربية"
+                  data-image="imgs/gandoura-black.png"
+                  style="background-image: url('imgs/gandoura-black.png');">
           </button>
         </div>
 
-        <!-- Right: current active image -->
+        <!-- Main current active image -->
         <div class="gallery-main" id="gallery-main-img"
-             style="background: linear-gradient(135deg, #e4e4e4 0%, #c8c8c8 100%);"
-             aria-label="Current product view">
+             style="background-image: url('imgs/caftan-brown.png');"
+             aria-label="صورة المنتج المعروضة">
         </div>
       </div>
 
-      <!-- Product info -->
+      <!-- Product info column -->
       <div class="product-info">
-        <p class="product-collection">Summer Edit</p>
-        <h1 class="product-name">Classic Tee</h1>
+        <p class="product-collection">مجموعة القفطان المغربي</p>
+        <h1 class="product-name">قفطان ملكي مطرز بالصقلي الحر</h1>
         <div class="product-prices">
-          <span class="price-before">$59.99</span>
-          <span class="price-after product-price">$39.99</span>
+          <span class="price-before">1,150 د.م.</span>
+          <span class="price-after product-price">890 د.م.</span>
         </div>
         <p class="product-description">
-          A timeless wardrobe staple crafted from 100% organic cotton. The Classic Tee features a relaxed fit,
-          reinforced stitching, and a crew neckline — designed to wear effortlessly from morning to night.
+          قفطان مغربي أصيل مصنوع من أرفع أقمشة الكريب الحريري الفاخر، مزدان بتطريز يدوي متقن بالصقلي الذهبي مع سفيفة وعقاد معلمين أصليين. تصميم ملكي يجمع بين عراقة التراث المغربي ولمسة عصرية تلائم أرقى المناسبات والأعراس.
         </p>
 
         <!-- Size selector -->
         <div class="product-sizes">
-          <p class="sizes-label">Size</p>
+          <p class="sizes-label">المقاس</p>
           <div class="sizes-grid">
             <button class="size-btn active">XS</button>
             <button class="size-btn">S</button>
@@ -129,21 +145,21 @@
 
         <!-- Action buttons -->
         <div class="product-actions">
-          <button class="add-to-bag add-to-cart" data-name="Classic Tee" data-price="$39.99">
+          <button class="add-to-bag add-to-cart" data-name="قفطان ملكي مطرز بالصقلي الحر" data-price="890 د.م.">
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
                  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
               <line x1="3" y1="6" x2="21" y2="6"/>
               <path d="M16 10a4 4 0 0 1-8 0"/>
             </svg>
-            Add to Bag
+            أضف إلى السلة
           </button>
-          <a href="https://wa.me/21300000000?text=I'd%20like%20to%20order%20the%20Classic%20Tee%20(%2439.99)"
+          <a href="https://wa.me/212600000000?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%21%20%D8%A3%D9%88%D8%AF%20%D8%B7%D9%84%D8%A8%20%D9%82%D9%81%D8%B7%D8%A7%D9%86%20%D9%85%D9%84%D9%83%D9%8A%20%D9%85%D8%B7%D8%B1%D8%B2%20%D8%A8%D8%A7%D9%84%D8%B5%D9%82%D9%84%D9%8A%20%D8%A7%D9%84%D8%AD%D8%B1%20%28890%20%D8%AF.%D9%85.%29"
              class="btn-whatsapp btn-whatsapp-product" target="_blank" rel="noopener">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16">
               <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
             </svg>
-            Order via WhatsApp
+            طلب مباشر عبر واتساب
           </a>
         </div>
       </div>
@@ -154,21 +170,25 @@
   <!-- ══════════════════════════ YOU MAY ALSO LIKE ══════════════════════════ -->
   <section class="related-section" id="related">
     <div class="section-header-bar">
-      <h2 class="section-title">You May Also Like</h2>
-      <a href="catalogue.html" class="view-all">View All →</a>
+      <h2 class="section-title">قد يعجبك أيضاً</h2>
+      <a href="catalogue.html" class="view-all">عرض الكتالوج ←</a>
     </div>
 
     <div class="related-grid">
 
       <!-- Card 1 -->
-      <div class="product-card" data-name="Linen Shirt" data-price="$54.99">
-        <div class="card-img"></div>
-        <div class="card-body">
-          <p class="card-name">Linen Shirt</p>
+      <div class="product-card" data-name="جلابة صوفية براندة عصرية" data-price="550 د.م.">
+        <a href="product.html" class="card-media-link">
+          <div class="card-img" style="background-image: url('imgs/djellaba.png');"></div>
+          <div class="card-body">
+            <p class="card-name">جلابة صوفية براندة عصرية</p>
+          </div>
+        </a>
+        <div class="card-body" style="padding-top:0;">
           <div class="card-pricing">
             <div class="card-prices">
-              <span class="price-before">$74.99</span>
-              <span class="price-after">$54.99</span>
+              <span class="price-before">700 د.م.</span>
+              <span class="price-after">550 د.م.</span>
             </div>
             <button class="add-to-cart">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
@@ -177,21 +197,25 @@
                 <line x1="3" y1="6" x2="21" y2="6"/>
                 <path d="M16 10a4 4 0 0 1-8 0"/>
               </svg>
-              Add
+              أضف
             </button>
           </div>
         </div>
       </div>
 
       <!-- Card 2 -->
-      <div class="product-card" data-name="Cargo Pants" data-price="$64.99">
-        <div class="card-img"></div>
-        <div class="card-body">
-          <p class="card-name">Cargo Pants</p>
+      <div class="product-card" data-name="جبادور فاس فاخر قطعتين" data-price="650 د.م.">
+        <a href="product.html" class="card-media-link">
+          <div class="card-img" style="background-image: url('imgs/jabadour.png');"></div>
+          <div class="card-body">
+            <p class="card-name">جبادور فاس فاخر قطعتين</p>
+          </div>
+        </a>
+        <div class="card-body" style="padding-top:0;">
           <div class="card-pricing">
             <div class="card-prices">
-              <span class="price-before">$89.99</span>
-              <span class="price-after">$64.99</span>
+              <span class="price-before">850 د.م.</span>
+              <span class="price-after">650 د.م.</span>
             </div>
             <button class="add-to-cart">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
@@ -200,21 +224,25 @@
                 <line x1="3" y1="6" x2="21" y2="6"/>
                 <path d="M16 10a4 4 0 0 1-8 0"/>
               </svg>
-              Add
+              أضف
             </button>
           </div>
         </div>
       </div>
 
       <!-- Card 3 -->
-      <div class="product-card" data-name="Oversized Hoodie" data-price="$84.99">
-        <div class="card-img"></div>
-        <div class="card-body">
-          <p class="card-name">Oversized Hoodie</p>
+      <div class="product-card" data-name="قندورة سوداء ملكية بالطرز الفاسي" data-price="390 د.م.">
+        <a href="product.html" class="card-media-link">
+          <div class="card-img" style="background-image: url('imgs/gandoura-black.png');"></div>
+          <div class="card-body">
+            <p class="card-name">قندورة سوداء ملكية بالطرز الفاسي</p>
+          </div>
+        </a>
+        <div class="card-body" style="padding-top:0;">
           <div class="card-pricing">
             <div class="card-prices">
-              <span class="price-before">$119.99</span>
-              <span class="price-after">$84.99</span>
+              <span class="price-before">490 د.م.</span>
+              <span class="price-after">390 د.م.</span>
             </div>
             <button class="add-to-cart">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
@@ -223,21 +251,25 @@
                 <line x1="3" y1="6" x2="21" y2="6"/>
                 <path d="M16 10a4 4 0 0 1-8 0"/>
               </svg>
-              Add
+              أضف
             </button>
           </div>
         </div>
       </div>
 
       <!-- Card 4 -->
-      <div class="product-card" data-name="Relaxed Shorts" data-price="$34.99">
-        <div class="card-img"></div>
-        <div class="card-body">
-          <p class="card-name">Relaxed Shorts</p>
+      <div class="product-card" data-name="قندورة حريرية مريحة للمناسبات" data-price="340 د.م.">
+        <a href="product.html" class="card-media-link">
+          <div class="card-img" style="background-image: url('imgs/gandoura.png');"></div>
+          <div class="card-body">
+            <p class="card-name">قندورة حريرية مريحة للمناسبات</p>
+          </div>
+        </a>
+        <div class="card-body" style="padding-top:0;">
           <div class="card-pricing">
             <div class="card-prices">
-              <span class="price-before">$49.99</span>
-              <span class="price-after">$34.99</span>
+              <span class="price-before">420 د.م.</span>
+              <span class="price-after">340 د.م.</span>
             </div>
             <button class="add-to-cart">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
@@ -246,7 +278,7 @@
                 <line x1="3" y1="6" x2="21" y2="6"/>
                 <path d="M16 10a4 4 0 0 1-8 0"/>
               </svg>
-              Add
+              أضف
             </button>
           </div>
         </div>
@@ -257,13 +289,11 @@
 
   <!-- ══════════════════════════ CONTACT US ════════════════════════════════ -->
   <section class="contact" id="contact">
-    <h2 class="section-title">Contact Us</h2>
-
+    <h2 class="section-title">اتصل بنا</h2>
     <div class="contact-grid">
 
       <div class="contact-card">
         <div class="contact-icon">
-          <!-- WhatsApp -->
           <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15
                      -.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463
@@ -281,13 +311,12 @@
                      3.68 8.2 8.2 0 4.518-3.68 8.25-8.2 8.253z"/>
           </svg>
         </div>
-        <h3 class="contact-label">WhatsApp</h3>
-        <a href="https://wa.me/21300000000" class="contact-value">+213 00 000 0000</a>
+        <h3 class="contact-label">واتساب</h3>
+        <a href="https://wa.me/212600000000" class="contact-value" dir="ltr">+212 600 000 000</a>
       </div>
 
       <div class="contact-card">
         <div class="contact-icon">
-          <!-- Phone -->
           <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1
@@ -297,26 +326,24 @@
                      16.92z"/>
           </svg>
         </div>
-        <h3 class="contact-label">Phone</h3>
-        <a href="tel:+21300000000" class="contact-value">+213 00 000 0000</a>
+        <h3 class="contact-label">الهاتف</h3>
+        <a href="tel:+212522000000" class="contact-value" dir="ltr">+212 522 000 000</a>
       </div>
 
       <div class="contact-card">
         <div class="contact-icon">
-          <!-- Email -->
           <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
             <polyline points="22,6 12,13 2,6"/>
           </svg>
         </div>
-        <h3 class="contact-label">Email</h3>
-        <a href="mailto:hello@tier2store.com" class="contact-value">hello@tier2store.com</a>
+        <h3 class="contact-label">البريد الإلكتروني</h3>
+        <a href="mailto:contact@tier2.ma" class="contact-value">contact@tier2.ma</a>
       </div>
 
       <div class="contact-card">
         <div class="contact-icon">
-          <!-- Instagram -->
           <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
@@ -324,39 +351,35 @@
             <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
           </svg>
         </div>
-        <h3 class="contact-label">Instagram</h3>
-        <a href="https://instagram.com/tier2store" class="contact-value">@tier2store</a>
+        <h3 class="contact-label">إنستغرام</h3>
+        <a href="https://instagram.com/tier2.ma" class="contact-value" dir="ltr">@tier2.ma</a>
       </div>
 
     </div>
-
-    <p class="contact-hours">Business hours: <strong>Sat – Thu, 9 AM – 7 PM</strong></p>
+    <p class="contact-hours">أوقات العمل: <strong>من الإثنين إلى السبت، 9:00 ص – 8:00 م</strong></p>
   </section>
 
   <footer class="footer">
-    <p>© 2026 Tier II. All rights reserved.</p>
+    <p>© 2026 TIER II. جميع الحقوق محفوظة.</p>
   </footer>
 
-  <!-- ══════════════════════════ BAG PANEL ══════════════════════════════ -->
-  <!-- Overlay (click to close) -->
+  <!-- ══════════════════════════ BAG PANEL ════════════════════════════════ -->
   <div class="bag-overlay" id="bag-overlay"></div>
-
-  <!-- Slide-in panel -->
-  <aside class="bag-panel" id="bag-panel" aria-label="Shopping Bag">
+  <aside class="bag-panel" id="bag-panel" aria-label="حقيبة التسوق">
     <div class="bag-panel-header">
-      <span>Your Bag</span>
-      <button class="bag-close-btn" id="bag-close-btn" aria-label="Close bag">✕</button>
+      <span>حقيبة التسوق</span>
+      <button class="bag-close-btn" id="bag-close-btn" aria-label="إغلاق الحقيبة">✕</button>
     </div>
     <div class="bag-items" id="bag-items">
-      <p class="bag-empty" id="bag-empty">Your bag is empty.</p>
+      <p class="bag-empty" id="bag-empty">حقيبتك فارغة حالياً.</p>
     </div>
     <div class="bag-checkout">
       <a id="bag-checkout-btn" href="#" class="btn-whatsapp" target="_blank" rel="noopener">
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:middle;margin-right:6px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
           <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
           <path d="M11.997 2.003A9.994 9.994 0 0 0 2 12c0 1.762.462 3.413 1.268 4.852L2 22l5.293-1.249A9.979 9.979 0 0 0 12 22c5.514 0 10-4.486 10-10S17.514 2.003 11.997 2.003zm.003 18.25c-1.63 0-3.14-.44-4.44-1.2l-.318-.19-3.142.741.77-3.07-.208-.326A8.202 8.202 0 0 1 3.8 12c0-4.52 3.682-8.2 8.2-8.2 4.52 0 8.2 3.68 8.2 8.2 0 4.518-3.68 8.25-8.2 8.253z"/>
         </svg>
-        Checkout via WhatsApp
+        إتمام الطلب عبر واتساب
       </a>
     </div>
   </aside>

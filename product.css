@@ -58,6 +58,10 @@
   overflow: hidden;
   opacity: 0.72;
   flex-shrink: 0;
+  background-color: #f6f6f6;
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
   transition: opacity var(--transition), border-color var(--transition), transform var(--transition);
 }
 
@@ -78,6 +82,10 @@
   border-radius: var(--radius);
   border: 1px solid rgba(0, 0, 0, 0.08);
   overflow: hidden;
+  background-color: #f6f6f6;
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
   transition: background 0.25s ease;
 }
 
@@ -325,3 +333,14 @@
     width: 100%;
   }
 }
+
+/* ── RTL Support for Product Page ── */
+[dir="rtl"] .gallery-thumbs {
+  padding-right: 0;
+  padding-left: 2px;
+}
+
+[dir="rtl"] .product-prices {
+  flex-direction: row-reverse;
+}
+
