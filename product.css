@@ -72,17 +72,92 @@
 }
 
 
-.gallery-main {
+.gallery-main-wrap {
+  position: relative;
   flex: 1;
   height: 100%;
   border-radius: var(--radius);
-  border: 1px solid rgba(0, 0, 0, 0.08);
   overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background-color: #f6f6f6;
+  touch-action: pan-y;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.gallery-main {
+  width: 100%;
+  height: 100%;
   background-color: #f6f6f6;
   background-size: contain;
   background-position: center center;
   background-repeat: no-repeat;
-  transition: background 0.25s ease;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.gallery-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #111;
+  cursor: pointer;
+  z-index: 5;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
+  transition: background var(--transition), transform var(--transition), opacity var(--transition);
+  opacity: 0.85;
+}
+
+.gallery-nav-btn:hover {
+  background: #111;
+  color: #fff;
+  opacity: 1;
+  transform: translateY(-50%) scale(1.08);
+}
+
+.gallery-nav-prev {
+  right: 12px;
+}
+
+.gallery-nav-next {
+  left: 12px;
+}
+
+.gallery-dots {
+  position: absolute;
+  bottom: 12px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  z-index: 5;
+}
+
+.gallery-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.25);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.gallery-dot.active {
+  width: 22px;
+  background: #111;
 }
 
 
@@ -173,6 +248,66 @@
 }
 
 
+/* ─── Product Colors ─────────────────────────────────────────────────────────── */
+
+.product-colors {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.colors-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.color-selected-name {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #111;
+}
+
+.colors-grid {
+  display: flex;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.color-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 2.5px solid #fff;
+  box-shadow: 0 0 0 1.5px #ccc, 0 2px 6px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  padding: 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.color-btn:hover {
+  transform: scale(1.12);
+}
+
+.color-btn.active {
+  box-shadow: 0 0 0 2.5px #111, 0 3px 10px rgba(0, 0, 0, 0.22);
+  transform: scale(1.08);
+}
+
+.color-swatch {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  display: block;
+}
+
+
 .product-actions {
   display: flex;
   gap: 0.75rem;
@@ -245,20 +380,37 @@
     padding: 1.25rem;
   }
 
-  
   .product-detail-inner {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
 
   .product-gallery {
+    flex-direction: column-reverse;
+    height: auto;
+    max-height: none;
+    gap: 0.85rem;
+  }
+
+  .gallery-main-wrap {
+    width: 100%;
     height: 380px;
-    max-height: 55vh;
   }
 
   .gallery-thumbs {
-    width: 66px;
-    gap: 0.5rem;
+    flex-direction: row;
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    justify-content: center;
+    gap: 0.6rem;
+    padding: 4px 2px;
+  }
+
+  .gallery-thumb {
+    width: 58px;
+    height: 58px;
+    border-radius: 9px;
   }
 
   .related-section {
@@ -286,17 +438,27 @@
   }
 
   .product-gallery {
-    height: 290px;
     gap: 0.65rem;
   }
 
+  .gallery-main-wrap {
+    height: 320px;
+  }
+
   .gallery-thumbs {
-    width: 52px;
-    gap: 0.4rem;
+    gap: 0.45rem;
+    justify-content: flex-start;
   }
 
   .gallery-thumb {
-    border-radius: 7px;
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+  }
+
+  .gallery-nav-btn {
+    width: 34px;
+    height: 34px;
   }
 
   .related-section {
@@ -326,10 +488,9 @@
   }
 }
 
-
 [dir="rtl"] .gallery-thumbs {
   padding-right: 0;
-  padding-left: 2px;
+  padding-left: 0;
 }
 
 [dir="rtl"] .product-prices {

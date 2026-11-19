@@ -81,9 +81,9 @@
     <div class="product-detail-inner">
 
       
-      <div class="product-gallery">
+      <div class="product-gallery" id="product-gallery">
         
-        <div class="gallery-thumbs" aria-label="معرض صور المنتج">
+        <div class="gallery-thumbs" id="gallery-thumbs" aria-label="معرض صور المنتج">
           <button type="button" class="gallery-thumb active" aria-label="الإطلالة الأمامية"
                   data-image="imgs/caftan-brown.png"
                   style="background-image: url('imgs/caftan-brown.png');">
@@ -107,9 +107,18 @@
         </div>
 
         
-        <div class="gallery-main" id="gallery-main-img"
-             style="background-image: url('imgs/caftan-brown.png');"
-             aria-label="صورة المنتج المعروضة">
+        <div class="gallery-main-wrap" id="gallery-main-wrap">
+          <div class="gallery-main" id="gallery-main-img"
+               style="background-image: url('imgs/caftan-brown.png');"
+               aria-label="صورة المنتج المعروضة">
+          </div>
+          <button type="button" class="gallery-nav-btn gallery-nav-prev" id="gallery-nav-prev" aria-label="الصورة السابقة">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </button>
+          <button type="button" class="gallery-nav-btn gallery-nav-next" id="gallery-nav-next" aria-label="الصورة التالية">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+          </button>
+          <div class="gallery-dots" id="gallery-dots"></div>
         </div>
       </div>
 
@@ -129,11 +138,38 @@
         <div class="product-sizes">
           <p class="sizes-label">المقاس</p>
           <div class="sizes-grid">
-            <button class="size-btn active">XS</button>
-            <button class="size-btn">S</button>
-            <button class="size-btn">M</button>
-            <button class="size-btn">L</button>
-            <button class="size-btn">XL</button>
+            <button type="button" class="size-btn active" data-size="XS">XS</button>
+            <button type="button" class="size-btn" data-size="S">S</button>
+            <button type="button" class="size-btn" data-size="M">M</button>
+            <button type="button" class="size-btn" data-size="L">L</button>
+            <button type="button" class="size-btn" data-size="XL">XL</button>
+          </div>
+        </div>
+
+        <div class="product-colors">
+          <div class="colors-header">
+            <span class="sizes-label">اللون:</span>
+            <span class="color-selected-name" id="color-selected-name">بني ملكي</span>
+          </div>
+          <div class="colors-grid" id="colors-grid" role="radiogroup" aria-label="خيارات الألوان">
+            <button type="button" class="color-btn active" data-color="بني ملكي" data-image="imgs/caftan-brown.png" title="بني ملكي" aria-label="بني ملكي" role="radio" aria-checked="true">
+              <span class="color-swatch" style="background-color: #7d5032;"></span>
+            </button>
+            <button type="button" class="color-btn" data-color="أسود فاخر" data-image="imgs/gandoura-black.png" title="أسود فاخر" aria-label="أسود فاخر" role="radio" aria-checked="false">
+              <span class="color-swatch" style="background-color: #1a1a1a;"></span>
+            </button>
+            <button type="button" class="color-btn" data-color="أخضر زمردي" title="أخضر زمردي" aria-label="أخضر زمردي" role="radio" aria-checked="false">
+              <span class="color-swatch" style="background-color: #1a4d38;"></span>
+            </button>
+            <button type="button" class="color-btn" data-color="أحمر عنابي" title="أحمر عنابي" aria-label="أحمر عنابي" role="radio" aria-checked="false">
+              <span class="color-swatch" style="background-color: #6e1c2b;"></span>
+            </button>
+            <button type="button" class="color-btn" data-color="أزرق ملكي" title="أزرق ملكي" aria-label="أزرق ملكي" role="radio" aria-checked="false">
+              <span class="color-swatch" style="background-color: #1d3557;"></span>
+            </button>
+            <button type="button" class="color-btn" data-color="أبيض عاجي" title="أبيض عاجي" aria-label="أبيض عاجي" role="radio" aria-checked="false">
+              <span class="color-swatch" style="background-color: #f7f4ed; border: 1px solid #ddd;"></span>
+            </button>
           </div>
         </div>
 
@@ -148,8 +184,8 @@
             </svg>
             أضف إلى السلة
           </button>
-          <a href="https://wa.me/212600000000?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%21%20%D8%A3%D9%88%D8%AF%20%D8%B7%D9%84%D8%A8%20%D9%82%D9%81%D8%B7%D8%A7%D9%86%20%D9%85%D9%84%D9%83%D9%8A%20%D9%85%D8%B7%D8%B1%D8%B2%20%D8%A8%D8%A7%D9%84%D8%B5%D9%82%D9%84%D9%8A%20%D8%A7%D9%84%D8%AD%D8%B1%20%28890%20%D8%AF.%D9%85.%29"
-             class="btn-whatsapp btn-whatsapp-product" target="_blank" rel="noopener">
+          <a href="https://wa.me/212770734332?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%21%20%D8%A3%D9%88%D8%AF%20%D8%B7%D9%84%D8%A8%20%D9%82%D9%81%D8%B7%D8%A7%D9%86%20%D9%85%D9%84%D9%83%D9%8A%20%D9%85%D8%B7%D8%B1%D8%B2%20%D8%A8%D8%A7%D9%84%D8%B5%D9%82%D9%84%D9%8A%20%D8%A7%D9%84%D8%AD%D8%B1%20%28890%20%D8%AF.%D9%85.%29"
+             class="btn-whatsapp btn-whatsapp-product" id="btn-whatsapp-direct" target="_blank" rel="noopener">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16">
               <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
             </svg>
@@ -306,7 +342,7 @@
           </svg>
         </div>
         <h3 class="contact-label">واتساب</h3>
-        <a href="https://wa.me/212600000000" class="contact-value" dir="ltr">+212 600 000 000</a>
+        <a href="https://wa.me/212770734332" class="contact-value" dir="ltr">+212 770 734 332</a>
       </div>
 
       <div class="contact-card">
@@ -321,7 +357,7 @@
           </svg>
         </div>
         <h3 class="contact-label">الهاتف</h3>
-        <a href="tel:+212522000000" class="contact-value" dir="ltr">+212 522 000 000</a>
+        <a href="tel:+212770734332" class="contact-value" dir="ltr">+212 770 734 332</a>
       </div>
 
       <div class="contact-card">
