@@ -308,6 +308,8 @@
 
   function extractBgImage(element) {
     if (!element) return '';
+    const img = element.querySelector('img');
+    if (img && img.getAttribute('src')) return img.getAttribute('src');
     const styleBg = element.style.backgroundImage || window.getComputedStyle(element).backgroundImage;
     const match = styleBg && styleBg.match(/url\(["']?([^"']+)["']?\)/);
     return match ? match[1] : '';
@@ -429,9 +431,16 @@
       const imgUrl = targetThumb.dataset.image;
       if (imgUrl) {
         mainImg.style.backgroundImage = `url('${imgUrl}')`;
+        const innerImg = mainImg.querySelector('.gallery-main-img-tag') || mainImg.querySelector('img');
+        if (innerImg) {
+          innerImg.src = imgUrl;
+          innerImg.style.display = 'block';
+        }
       } else {
         const gradient = targetThumb.dataset.gradient || targetThumb.style.background;
         if (gradient) mainImg.style.background = gradient;
+        const innerImg = mainImg.querySelector('.gallery-main-img-tag') || mainImg.querySelector('img');
+        if (innerImg) innerImg.style.display = 'none';
       }
 
       if (dotsContainer) {
@@ -553,6 +562,11 @@
         goToImage(matchingThumbIdx);
       } else {
         mainImg.style.backgroundImage = `url('${colorImg}')`;
+        const innerImg = mainImg.querySelector('.gallery-main-img-tag') || mainImg.querySelector('img');
+        if (innerImg) {
+          innerImg.src = colorImg;
+          innerImg.style.display = 'block';
+        }
       }
     }
 
