@@ -141,11 +141,11 @@
   transform: translateY(-50%) scale(1.08);
 }
 
-.gallery-nav-prev {
+.gallery-nav-next {
   right: 12px;
 }
 
-.gallery-nav-next {
+.gallery-nav-prev {
   left: 12px;
 }
 
@@ -504,11 +504,11 @@
     height: 34px;
   }
 
-  .gallery-nav-prev {
+  .gallery-nav-next {
     right: 8px;
   }
 
-  .gallery-nav-next {
+  .gallery-nav-prev {
     left: 8px;
   }
 

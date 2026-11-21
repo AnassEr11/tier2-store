@@ -465,17 +465,17 @@
   });
 
   // Next / Prev button clicks
-  if (prevBtn) {
-    prevBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      goToImage(currentIndex - 1, 1);
-    });
-  }
-
   if (nextBtn) {
     nextBtn.addEventListener('click', (e) => {
       e.stopPropagation();
-      goToImage(currentIndex + 1, -1);
+      goToImage(currentIndex + 1, 1);
+    });
+  }
+
+  if (prevBtn) {
+    prevBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      goToImage(currentIndex - 1, -1);
     });
   }
 
@@ -519,11 +519,12 @@
     const minSwipeDist = 38;
 
     if (Math.abs(diffX) > minSwipeDist && Math.abs(diffX) > Math.abs(diffY)) {
-      // In RTL: swipe left (diffX < 0) goes to NEXT image, swipe right (diffX > 0) goes to PREV image
-      if (diffX < 0) {
-        goToImage(currentIndex + 1, -1);
+      // Swiping right (diffX > 0) advances to NEXT image
+      // Swiping left (diffX < 0) goes back to PREV image
+      if (diffX > 0) {
+        goToImage(currentIndex + 1, 1);
       } else {
-        goToImage(currentIndex - 1, 1);
+        goToImage(currentIndex - 1, -1);
       }
     }
   }, { passive: true });
