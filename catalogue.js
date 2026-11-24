@@ -174,6 +174,9 @@ function bagSVG() {
 }
 
 function cardHTML(product) {
+  const discount = product.priceBefore
+    ? Math.round((1 - product.priceAfter / product.priceBefore) * 100)
+    : 0;
   const priceSection = product.priceBefore
     ? `<span class="price-before">${product.priceBefore} د.م.</span>
        <span class="price-after">${product.priceAfter} د.م.</span>`
@@ -182,7 +185,9 @@ function cardHTML(product) {
   return `
     <div class="product-card" data-name="${escapeHtml(product.name)}" data-price="${product.priceAfter} د.م.">
       <a href="product.html" class="card-media-link">
-        <div class="card-img" style="background-image: url('${product.image}');"></div>
+        <div class="card-img" style="background-image: url('${product.image}');">
+          ${discount ? `<span class="discount-badge">-${discount}%</span>` : ''}
+        </div>
         <div class="card-body">
           <p class="card-name">${escapeHtml(product.name)}</p>
         </div>
@@ -207,22 +212,24 @@ function render() {
   const pageItems = filtered.slice(start, start + PER_PAGE);
 
   const countEl = document.getElementById('catalogue-count');
-  if (state.search) {
-    countEl.innerHTML = `<span>${filtered.length} منتج لـ <span class="search-term">"${escapeHtml(state.search)}"</span></span><button id="clear-search-link" class="clear-search-link" type="button" title="مسح تصفية البحث">✕ مسح</button>`;
-    const clearLink = document.getElementById('clear-search-link');
-    if (clearLink) {
-      clearLink.addEventListener('click', () => {
-        state.search = '';
-        state.page = 1;
-        if (navSearchInput) navSearchInput.value = '';
-        const url = new URL(window.location);
-        url.searchParams.delete('search');
-        window.history.replaceState({}, '', url);
-        render();
-      });
+  if (countEl) {
+    if (state.search) {
+      countEl.innerHTML = `<span>نتائج البحث عن <span class="search-term">"${escapeHtml(state.search)}"</span></span><button id="clear-search-link" class="clear-search-link" type="button" title="مسح تصفية البحث">✕ مسح</button>`;
+      const clearLink = document.getElementById('clear-search-link');
+      if (clearLink) {
+        clearLink.addEventListener('click', () => {
+          state.search = '';
+          state.page = 1;
+          if (navSearchInput) navSearchInput.value = '';
+          const url = new URL(window.location);
+          url.searchParams.delete('search');
+          window.history.replaceState({}, '', url);
+          render();
+        });
+      }
+    } else {
+      countEl.textContent = '';
     }
-  } else {
-    countEl.textContent = `${filtered.length} منتج`;
   }
 
   const grid = document.getElementById('catalogue-grid');

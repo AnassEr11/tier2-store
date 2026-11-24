@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css?v=2" />
 </head>
 <body>
 
@@ -82,410 +82,733 @@
       <p class="landing-hero-sub">تشكيلة 2026</p>
       <h1 class="landing-hero-title">أناقة المغرب<br>في كل لحظة</h1>
       <p class="landing-hero-desc">ملابس مغربية راقية بأيدي حرفيين متمرسين — قفاطين، جلابيب، جبادور وعبايات لكل مناسبة</p>
-      <a href="#collections" class="landing-hero-cta">اكتشف التشكيلات ←</a>
+      <div class="landing-hero-actions">
+        <a href="#browse-collections" class="landing-hero-cta">تصفح التشكيلات ←</a>
+        <a href="catalogue.html" class="landing-hero-cta landing-hero-secondary">تصفح الكتالوج</a>
+      </div>
     </div>
   </section>
 
-  <section class="collections" id="collections">
+  <!-- Browse Collections Section -->
+  <section class="browse-collections" id="browse-collections">
     <div class="section-header-bar">
-      <h2 class="section-title">التشكيلات الحصرية</h2>
-    </div>
-    <div class="section-body">
-    <div class="collections-grid">
-
-      
-      <a href="catalogue.html?cat=caftans" class="collection-box" style="text-decoration:none;">
-        <div class="collection-img" style="background-image: url('imgs/caftan-brown.png');"></div>
-        <div class="collection-overlay">
-          <span class="collection-title">القفطان المغربي</span>
-          <span class="collection-arrow">←</span>
-        </div>
-      </a>
-
-      
-      <a href="catalogue.html?cat=djellabas" class="collection-box" style="text-decoration:none;">
-        <div class="collection-img" style="background-image: url('imgs/djellaba.png');"></div>
-        <div class="collection-overlay">
-          <span class="collection-title">الجلابة العصرية</span>
-          <span class="collection-arrow">←</span>
-        </div>
-      </a>
-
-      
-      <div class="collection-col-split">
-        <a href="catalogue.html?cat=jabadours" class="collection-box" style="text-decoration:none;">
-          <div class="collection-img" style="background-image: url('imgs/jabadour.png');"></div>
-          <div class="collection-overlay">
-            <span class="collection-title">الجبادور الفاخر</span>
-            <span class="collection-arrow">←</span>
-          </div>
-        </a>
-        <a href="catalogue.html?cat=gandouras" class="collection-box" style="text-decoration:none;">
-          <div class="collection-img" style="background-image: url('imgs/gandoura-black.png');"></div>
-          <div class="collection-overlay">
-            <span class="collection-title">القندورة والعبايات</span>
-            <span class="collection-arrow">←</span>
-          </div>
-        </a>
+      <div>
+        <h2 class="section-title">تصفح التشكيلات</h2>
+        <p class="section-subtitle">أرقى التشكيلات المغربية التقليدية والعصرية — اختر تشكيلتك وتصفح أروع التصاميم</p>
       </div>
-
-    </div>
-    </div>
-  </section>
-
-  
-  <section class="trending" id="trending">
-    <div class="section-header-bar">
-      <h2 class="section-title">الأكثر طلباً</h2>
-      <a href="catalogue.html" class="view-all">عرض الكتالوج ←</a>
+      <a href="catalogue.html" class="view-all">عرض الكتالوج كامل ←</a>
     </div>
     <div class="section-body">
 
-      
-      <div class="trending-row">
-        <p class="trending-row-label">مجموعة القفطان الملكي</p>
-        <div class="trending-grid">
-
-          
-          <div class="product-card" data-name="قفطان ملكي مطرز بالصقلي" data-price="890 د.م.">
-            <a href="product.html" class="card-media-link">
-              <div class="card-img" style="background-image: url('imgs/caftan-brown.png');"></div>
-              <div class="card-body">
-                <p class="card-name">قفطان ملكي مطرز بالصقلي</p>
-              </div>
+      <!-- Column 1: Caftans Collection -->
+      <div class="collection-column" data-category="caftans">
+        <div class="collection-column-header">
+          <div class="collection-header-text">
+            <div class="collection-title-row">
+              <h3 class="collection-column-title">تشكيلة القفطان المغربي</h3>
+            </div>
+            <p class="collection-column-desc">أفخم تصاميم القفطان المطرز بالصقلي الحر والراندة الفاسية للمناسبات الراقية</p>
+          </div>
+          <div class="collection-header-actions">
+            <a href="catalogue.html?cat=caftans" class="collection-browse-all-btn">
+              <span>تصفح كل التشكيلة</span>
+              <span class="btn-arrow">←</span>
             </a>
-            <div class="card-body" style="padding-top:0;">
-              <div class="card-pricing">
-                <div class="card-prices">
-                  <span class="price-before">1,150 د.م.</span>
-                  <span class="price-after">890 د.م.</span>
+          </div>
+        </div>
+
+        <div class="collection-scroll-wrapper">
+          <div class="collection-scroll-track">
+
+            <div class="product-card" data-name="قفطان ملكي مطرز بالصقلي" data-price="890 د.م.">
+              <a href="product.html" class="card-media-link">
+                <div class="card-img" style="background-image: url('imgs/caftan-brown.png');"></div>
+                <div class="card-body">
+                  <p class="card-name">قفطان ملكي مطرز بالصقلي</p>
                 </div>
-                <button class="add-to-cart">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                       fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
-                    <line x1="3" y1="6" x2="21" y2="6"/>
-                    <path d="M16 10a4 4 0 0 1-8 0"/>
-                  </svg>
-                  أضف
-                </button>
+              </a>
+              <div class="card-body" style="padding-top:0;">
+                <div class="card-pricing">
+                  <div class="card-prices">
+                    <span class="price-before">1,150 د.م.</span>
+                    <span class="price-after">890 د.م.</span>
+                  </div>
+                  <button class="add-to-cart">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+                      <line x1="3" y1="6" x2="21" y2="6"/>
+                      <path d="M16 10a4 4 0 0 1-8 0"/>
+                    </svg>
+                    أضف
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
 
-          
-          <div class="product-card" data-name="قفطان مخملي بالراندة والجوهر" data-price="950 د.م.">
-            <a href="product.html" class="card-media-link">
-              <div class="card-img" style="background-image: url('imgs/product-secondary-1.png');"></div>
-              <div class="card-body">
-                <p class="card-name">قفطان مخملي بالراندة والجوهر</p>
-              </div>
-            </a>
-            <div class="card-body" style="padding-top:0;">
-              <div class="card-pricing">
-                <div class="card-prices">
-                  <span class="price-before">1,200 د.م.</span>
-                  <span class="price-after">950 د.م.</span>
+            <div class="product-card" data-name="قفطان مخملي بالراندة والجوهر" data-price="950 د.م.">
+              <a href="product.html" class="card-media-link">
+                <div class="card-img" style="background-image: url('imgs/product-secondary-1.png');"></div>
+                <div class="card-body">
+                  <p class="card-name">قفطان مخملي بالراندة والجوهر</p>
                 </div>
-                <button class="add-to-cart">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                       fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
-                    <line x1="3" y1="6" x2="21" y2="6"/>
-                    <path d="M16 10a4 4 0 0 1-8 0"/>
-                  </svg>
-                  أضف
-                </button>
+              </a>
+              <div class="card-body" style="padding-top:0;">
+                <div class="card-pricing">
+                  <div class="card-prices">
+                    <span class="price-before">1,200 د.م.</span>
+                    <span class="price-after">950 د.م.</span>
+                  </div>
+                  <button class="add-to-cart">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+                      <line x1="3" y1="6" x2="21" y2="6"/>
+                      <path d="M16 10a4 4 0 0 1-8 0"/>
+                    </svg>
+                    أضف
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
 
-          
-          <div class="product-card" data-name="قفطان كريب مطرز بفتلة الذهب" data-price="790 د.م.">
-            <a href="product.html" class="card-media-link">
-              <div class="card-img" style="background-image: url('imgs/caftan-brown.png');"></div>
-              <div class="card-body">
-                <p class="card-name">قفطان كريب مطرز بفتلة الذهب</p>
-              </div>
-            </a>
-            <div class="card-body" style="padding-top:0;">
-              <div class="card-pricing">
-                <div class="card-prices">
-                  <span class="price-before">990 د.م.</span>
-                  <span class="price-after">790 د.م.</span>
+            <div class="product-card" data-name="قفطان كريب مطرز بفتلة الذهب" data-price="790 د.م.">
+              <a href="product.html" class="card-media-link">
+                <div class="card-img" style="background-image: url('imgs/caftan-brown.png');"></div>
+                <div class="card-body">
+                  <p class="card-name">قفطان كريب مطرز بفتلة الذهب</p>
                 </div>
-                <button class="add-to-cart">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                       fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
-                    <line x1="3" y1="6" x2="21" y2="6"/>
-                    <path d="M16 10a4 4 0 0 1-8 0"/>
-                  </svg>
-                  أضف
-                </button>
+              </a>
+              <div class="card-body" style="padding-top:0;">
+                <div class="card-pricing">
+                  <div class="card-prices">
+                    <span class="price-before">990 د.م.</span>
+                    <span class="price-after">790 د.م.</span>
+                  </div>
+                  <button class="add-to-cart">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+                      <line x1="3" y1="6" x2="21" y2="6"/>
+                      <path d="M16 10a4 4 0 0 1-8 0"/>
+                    </svg>
+                    أضف
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
 
-          
-          <div class="product-card" data-name="قفطان جوهرة ملكي خفيف" data-price="690 د.م.">
-            <a href="product.html" class="card-media-link">
-              <div class="card-img" style="background-image: url('imgs/product-secondary-1.png');"></div>
-              <div class="card-body">
-                <p class="card-name">قفطان جوهرة ملكي خفيف</p>
-              </div>
-            </a>
-            <div class="card-body" style="padding-top:0;">
-              <div class="card-pricing">
-                <div class="card-prices">
-                  <span class="price-before">850 د.م.</span>
-                  <span class="price-after">690 د.م.</span>
+            <div class="product-card" data-name="قفطان جوهرة ملكي خفيف" data-price="690 د.م.">
+              <a href="product.html" class="card-media-link">
+                <div class="card-img" style="background-image: url('imgs/product-secondary-1.png');"></div>
+                <div class="card-body">
+                  <p class="card-name">قفطان جوهرة ملكي خفيف</p>
                 </div>
-                <button class="add-to-cart">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                       fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
-                    <line x1="3" y1="6" x2="21" y2="6"/>
-                    <path d="M16 10a4 4 0 0 1-8 0"/>
-                  </svg>
-                  أضف
-                </button>
+              </a>
+              <div class="card-body" style="padding-top:0;">
+                <div class="card-pricing">
+                  <div class="card-prices">
+                    <span class="price-before">850 د.م.</span>
+                    <span class="price-after">690 د.م.</span>
+                  </div>
+                  <button class="add-to-cart">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+                      <line x1="3" y1="6" x2="21" y2="6"/>
+                      <path d="M16 10a4 4 0 0 1-8 0"/>
+                    </svg>
+                    أضف
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
 
+            <div class="product-card" data-name="قفطان أطلس حريري بالزواق الفاسي" data-price="1,020 د.م.">
+              <a href="product.html" class="card-media-link">
+                <div class="card-img" style="background-image: url('imgs/caftan-brown.png');"></div>
+                <div class="card-body">
+                  <p class="card-name">قفطان أطلس حريري بالزواق الفاسي</p>
+                </div>
+              </a>
+              <div class="card-body" style="padding-top:0;">
+                <div class="card-pricing">
+                  <div class="card-prices">
+                    <span class="price-before">1,280 د.م.</span>
+                    <span class="price-after">1,020 د.م.</span>
+                  </div>
+                  <button class="add-to-cart">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+                      <line x1="3" y1="6" x2="21" y2="6"/>
+                      <path d="M16 10a4 4 0 0 1-8 0"/>
+                    </svg>
+                    أضف
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Browse all caftans card -->
+            <a href="catalogue.html?cat=caftans" class="collection-browse-card" aria-label="عرض جميع القفاطين">
+              <div class="browse-card-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"/>
+                  <polyline points="12 8 8 12 12 16"/>
+                  <line x1="16" y1="12" x2="8" y2="12"/>
+                </svg>
+              </div>
+              <p class="browse-card-title">عرض كل التشكيلة</p>
+              <p class="browse-card-subtitle">استكشف جميع تصاميم القفطان</p>
+              <span class="browse-card-cta">تصفح الآن ←</span>
+            </a>
+
+          </div>
+          <div class="collection-bottom-controls">
+            <div class="collection-nav-arrows">
+              <button type="button" class="lane-arrow lane-arrow-prev" aria-label="السابق" title="السابق">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+              </button>
+              <button type="button" class="lane-arrow lane-arrow-next" aria-label="التالي" title="التالي">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+              </button>
+            </div>
+          </div>
+          <div class="collection-custom-scrollbar">
+            <div class="collection-scrollbar-track" role="scrollbar" aria-label="شريط التمرير للقفاطين">
+              <div class="collection-scrollbar-thumb"></div>
+            </div>
+          </div>
         </div>
       </div>
 
-      
-      <div class="trending-row">
-        <p class="trending-row-label">مجموعة الجلابة والجبادور</p>
-        <div class="trending-grid">
-
-          
-          <div class="product-card" data-name="جلابة صوفية براندة عصرية" data-price="550 د.م.">
-            <a href="product.html" class="card-media-link">
-              <div class="card-img" style="background-image: url('imgs/djellaba.png');"></div>
-              <div class="card-body">
-                <p class="card-name">جلابة صوفية براندة عصرية</p>
-              </div>
+      <!-- Column 2: Djellabas Collection -->
+      <div class="collection-column" data-category="djellabas">
+        <div class="collection-column-header">
+          <div class="collection-header-text">
+            <div class="collection-title-row">
+              <h3 class="collection-column-title">تشكيلة الجلابة العصرية</h3>
+            </div>
+            <p class="collection-column-desc">جلابيب مغربية أنيقة بلمسة عصرية وتطريز المعلم والراندة الناعمة</p>
+          </div>
+          <div class="collection-header-actions">
+            <a href="catalogue.html?cat=djellabas" class="collection-browse-all-btn">
+              <span>تصفح كل التشكيلة</span>
+              <span class="btn-arrow">←</span>
             </a>
-            <div class="card-body" style="padding-top:0;">
-              <div class="card-pricing">
-                <div class="card-prices">
-                  <span class="price-before">700 د.م.</span>
-                  <span class="price-after">550 د.م.</span>
+          </div>
+        </div>
+
+        <div class="collection-scroll-wrapper">
+          <div class="collection-scroll-track">
+
+            <div class="product-card" data-name="جلابة صوفية براندة عصرية" data-price="550 د.م.">
+              <a href="product.html" class="card-media-link">
+                <div class="card-img" style="background-image: url('imgs/djellaba.png');"></div>
+                <div class="card-body">
+                  <p class="card-name">جلابة صوفية براندة عصرية</p>
                 </div>
-                <button class="add-to-cart">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                       fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
-                    <line x1="3" y1="6" x2="21" y2="6"/>
-                    <path d="M16 10a4 4 0 0 1-8 0"/>
-                  </svg>
-                  أضف
-                </button>
+              </a>
+              <div class="card-body" style="padding-top:0;">
+                <div class="card-pricing">
+                  <div class="card-prices">
+                    <span class="price-before">700 د.م.</span>
+                    <span class="price-after">550 د.م.</span>
+                  </div>
+                  <button class="add-to-cart">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+                      <line x1="3" y1="6" x2="21" y2="6"/>
+                      <path d="M16 10a4 4 0 0 1-8 0"/>
+                    </svg>
+                    أضف
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
 
-          
-          <div class="product-card" data-name="جبادور فاس فاخر قطعتين" data-price="650 د.م.">
-            <a href="product.html" class="card-media-link">
-              <div class="card-img" style="background-image: url('imgs/jabadour.png');"></div>
-              <div class="card-body">
-                <p class="card-name">جبادور فاس فاخر قطعتين</p>
-              </div>
-            </a>
-            <div class="card-body" style="padding-top:0;">
-              <div class="card-pricing">
-                <div class="card-prices">
-                  <span class="price-before">850 د.م.</span>
-                  <span class="price-after">650 د.م.</span>
+            <div class="product-card" data-name="جلابة مليفة بتطريز المعلم" data-price="490 د.م.">
+              <a href="product.html" class="card-media-link">
+                <div class="card-img" style="background-image: url('imgs/djellaba.png');"></div>
+                <div class="card-body">
+                  <p class="card-name">جلابة مليفة بتطريز المعلم</p>
                 </div>
-                <button class="add-to-cart">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                       fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
-                    <line x1="3" y1="6" x2="21" y2="6"/>
-                    <path d="M16 10a4 4 0 0 1-8 0"/>
-                  </svg>
-                  أضف
-                </button>
+              </a>
+              <div class="card-body" style="padding-top:0;">
+                <div class="card-pricing">
+                  <div class="card-prices">
+                    <span class="price-before">620 د.م.</span>
+                    <span class="price-after">490 د.م.</span>
+                  </div>
+                  <button class="add-to-cart">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+                      <line x1="3" y1="6" x2="21" y2="6"/>
+                      <path d="M16 10a4 4 0 0 1-8 0"/>
+                    </svg>
+                    أضف
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
 
-          
-          <div class="product-card" data-name="جلابة مليفة بتطريز المعلم" data-price="490 د.م.">
-            <a href="product.html" class="card-media-link">
-              <div class="card-img" style="background-image: url('imgs/djellaba.png');"></div>
-              <div class="card-body">
-                <p class="card-name">جلابة مليفة بتطريز المعلم</p>
-              </div>
-            </a>
-            <div class="card-body" style="padding-top:0;">
-              <div class="card-pricing">
-                <div class="card-prices">
-                  <span class="price-before">620 د.م.</span>
-                  <span class="price-after">490 د.م.</span>
+            <div class="product-card" data-name="جلابة كريب ناعمة بخياطة الدبانة" data-price="580 د.م.">
+              <a href="product.html" class="card-media-link">
+                <div class="card-img" style="background-image: url('imgs/djellaba.png');"></div>
+                <div class="card-body">
+                  <p class="card-name">جلابة كريب ناعمة بخياطة الدبانة</p>
                 </div>
-                <button class="add-to-cart">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                       fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
-                    <line x1="3" y1="6" x2="21" y2="6"/>
-                    <path d="M16 10a4 4 0 0 1-8 0"/>
-                  </svg>
-                  أضف
-                </button>
+              </a>
+              <div class="card-body" style="padding-top:0;">
+                <div class="card-pricing">
+                  <div class="card-prices">
+                    <span class="price-before">720 د.م.</span>
+                    <span class="price-after">580 د.م.</span>
+                  </div>
+                  <button class="add-to-cart">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+                      <line x1="3" y1="6" x2="21" y2="6"/>
+                      <path d="M16 10a4 4 0 0 1-8 0"/>
+                    </svg>
+                    أضف
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
 
-          
-          <div class="product-card" data-name="جبادور سوسي بتطريز تقليدي" data-price="590 د.م.">
-            <a href="product.html" class="card-media-link">
-              <div class="card-img" style="background-image: url('imgs/jabadour.png');"></div>
-              <div class="card-body">
-                <p class="card-name">جبادور سوسي بتطريز تقليدي</p>
-              </div>
-            </a>
-            <div class="card-body" style="padding-top:0;">
-              <div class="card-pricing">
-                <div class="card-prices">
-                  <span class="price-before">750 د.م.</span>
-                  <span class="price-after">590 د.م.</span>
+            <div class="product-card" data-name="جلابة شتوية دافئة بالقب الملكي" data-price="530 د.م.">
+              <a href="product.html" class="card-media-link">
+                <div class="card-img" style="background-image: url('imgs/djellaba.png');"></div>
+                <div class="card-body">
+                  <p class="card-name">جلابة شتوية دافئة بالقب الملكي</p>
                 </div>
-                <button class="add-to-cart">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                       fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
-                    <line x1="3" y1="6" x2="21" y2="6"/>
-                    <path d="M16 10a4 4 0 0 1-8 0"/>
-                  </svg>
-                  أضف
-                </button>
+              </a>
+              <div class="card-body" style="padding-top:0;">
+                <div class="card-pricing">
+                  <div class="card-prices">
+                    <span class="price-before">660 د.م.</span>
+                    <span class="price-after">530 د.م.</span>
+                  </div>
+                  <button class="add-to-cart">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+                      <line x1="3" y1="6" x2="21" y2="6"/>
+                      <path d="M16 10a4 4 0 0 1-8 0"/>
+                    </svg>
+                    أضف
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
 
+            <div class="product-card" data-name="جلابة سوسية مطروزة بالحرير" data-price="640 د.م.">
+              <a href="product.html" class="card-media-link">
+                <div class="card-img" style="background-image: url('imgs/djellaba.png');"></div>
+                <div class="card-body">
+                  <p class="card-name">جلابة سوسية مطروزة بالحرير</p>
+                </div>
+              </a>
+              <div class="card-body" style="padding-top:0;">
+                <div class="card-pricing">
+                  <div class="card-prices">
+                    <span class="price-before">790 د.م.</span>
+                    <span class="price-after">640 د.م.</span>
+                  </div>
+                  <button class="add-to-cart">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+                      <line x1="3" y1="6" x2="21" y2="6"/>
+                      <path d="M16 10a4 4 0 0 1-8 0"/>
+                    </svg>
+                    أضف
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Browse all djellabas card -->
+            <a href="catalogue.html?cat=djellabas" class="collection-browse-card" aria-label="عرض جميع الجلابيب">
+              <div class="browse-card-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"/>
+                  <polyline points="12 8 8 12 12 16"/>
+                  <line x1="16" y1="12" x2="8" y2="12"/>
+                </svg>
+              </div>
+              <p class="browse-card-title">عرض كل التشكيلة</p>
+              <p class="browse-card-subtitle">استكشف جميع تصاميم الجلابة</p>
+              <span class="browse-card-cta">تصفح الآن ←</span>
+            </a>
+
+          </div>
+          <div class="collection-bottom-controls">
+            <div class="collection-nav-arrows">
+              <button type="button" class="lane-arrow lane-arrow-prev" aria-label="السابق" title="السابق">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+              </button>
+              <button type="button" class="lane-arrow lane-arrow-next" aria-label="التالي" title="التالي">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+              </button>
+            </div>
+          </div>
+          <div class="collection-custom-scrollbar">
+            <div class="collection-scrollbar-track" role="scrollbar" aria-label="شريط التمرير للجلابيب">
+              <div class="collection-scrollbar-thumb"></div>
+            </div>
+          </div>
         </div>
       </div>
 
-      
-      <div class="trending-row">
-        <p class="trending-row-label">مجموعة القندورة والعبايات</p>
-        <div class="trending-grid">
-
-          
-          <div class="product-card" data-name="قندورة سوداء ملكية بالطرز الفاسي" data-price="390 د.م.">
-            <a href="product.html" class="card-media-link">
-              <div class="card-img" style="background-image: url('imgs/gandoura-black.png');"></div>
-              <div class="card-body">
-                <p class="card-name">قندورة سوداء ملكية بالطرز الفاسي</p>
-              </div>
+      <!-- Column 3: Jabadours Collection -->
+      <div class="collection-column" data-category="jabadours">
+        <div class="collection-column-header">
+          <div class="collection-header-text">
+            <div class="collection-title-row">
+              <h3 class="collection-column-title">تشكيلة الجبادور الفاخر</h3>
+            </div>
+            <p class="collection-column-desc">أصالة الجبادور المغربي الملكي للمناسبات الرسمية والأعياد والجمعة</p>
+          </div>
+          <div class="collection-header-actions">
+            <a href="catalogue.html?cat=jabadours" class="collection-browse-all-btn">
+              <span>تصفح كل التشكيلة</span>
+              <span class="btn-arrow">←</span>
             </a>
-            <div class="card-body" style="padding-top:0;">
-              <div class="card-pricing">
-                <div class="card-prices">
-                  <span class="price-before">490 د.م.</span>
-                  <span class="price-after">390 د.م.</span>
+          </div>
+        </div>
+
+        <div class="collection-scroll-wrapper">
+          <div class="collection-scroll-track">
+
+            <div class="product-card" data-name="جبادور فاس فاخر قطعتين" data-price="650 د.م.">
+              <a href="product.html" class="card-media-link">
+                <div class="card-img" style="background-image: url('imgs/jabadour.png');"></div>
+                <div class="card-body">
+                  <p class="card-name">جبادور فاس فاخر قطعتين</p>
                 </div>
-                <button class="add-to-cart">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                       fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
-                    <line x1="3" y1="6" x2="21" y2="6"/>
-                    <path d="M16 10a4 4 0 0 1-8 0"/>
-                  </svg>
-                  أضف
-                </button>
+              </a>
+              <div class="card-body" style="padding-top:0;">
+                <div class="card-pricing">
+                  <div class="card-prices">
+                    <span class="price-before">850 د.م.</span>
+                    <span class="price-after">650 د.م.</span>
+                  </div>
+                  <button class="add-to-cart">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+                      <line x1="3" y1="6" x2="21" y2="6"/>
+                      <path d="M16 10a4 4 0 0 1-8 0"/>
+                    </svg>
+                    أضف
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
 
-          
-          <div class="product-card" data-name="قندورة حريرية مريحة للمناسبات" data-price="340 د.م.">
-            <a href="product.html" class="card-media-link">
-              <div class="card-img" style="background-image: url('imgs/gandoura.png');"></div>
-              <div class="card-body">
-                <p class="card-name">قندورة حريرية مريحة للمناسبات</p>
-              </div>
-            </a>
-            <div class="card-body" style="padding-top:0;">
-              <div class="card-pricing">
-                <div class="card-prices">
-                  <span class="price-before">420 د.م.</span>
-                  <span class="price-after">340 د.م.</span>
+            <div class="product-card" data-name="جبادور سوسي بتطريز تقليدي" data-price="590 د.م.">
+              <a href="product.html" class="card-media-link">
+                <div class="card-img" style="background-image: url('imgs/jabadour.png');"></div>
+                <div class="card-body">
+                  <p class="card-name">جبادور سوسي بتطريز تقليدي</p>
                 </div>
-                <button class="add-to-cart">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                       fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
-                    <line x1="3" y1="6" x2="21" y2="6"/>
-                    <path d="M16 10a4 4 0 0 1-8 0"/>
-                  </svg>
-                  أضف
-                </button>
+              </a>
+              <div class="card-body" style="padding-top:0;">
+                <div class="card-pricing">
+                  <div class="card-prices">
+                    <span class="price-before">750 د.م.</span>
+                    <span class="price-after">590 د.م.</span>
+                  </div>
+                  <button class="add-to-cart">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+                      <line x1="3" y1="6" x2="21" y2="6"/>
+                      <path d="M16 10a4 4 0 0 1-8 0"/>
+                    </svg>
+                    أضف
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
 
-          
-          <div class="product-card" data-name="عباية كيمونو عصرية بالطرز المغربي" data-price="450 د.م.">
-            <a href="product.html" class="card-media-link">
-              <div class="card-img" style="background-image: url('imgs/gandoura-black.png');"></div>
-              <div class="card-body">
-                <p class="card-name">عباية كيمونو عصرية بالطرز المغربي</p>
-              </div>
-            </a>
-            <div class="card-body" style="padding-top:0;">
-              <div class="card-pricing">
-                <div class="card-prices">
-                  <span class="price-before">580 د.م.</span>
-                  <span class="price-after">450 د.م.</span>
+            <div class="product-card" data-name="جبادور مخملي بالأزرار الحريرية" data-price="690 د.م.">
+              <a href="product.html" class="card-media-link">
+                <div class="card-img" style="background-image: url('imgs/jabadour.png');"></div>
+                <div class="card-body">
+                  <p class="card-name">جبادور مخملي بالأزرار الحريرية</p>
                 </div>
-                <button class="add-to-cart">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                       fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
-                    <line x1="3" y1="6" x2="21" y2="6"/>
-                    <path d="M16 10a4 4 0 0 1-8 0"/>
-                  </svg>
-                  أضف
-                </button>
+              </a>
+              <div class="card-body" style="padding-top:0;">
+                <div class="card-pricing">
+                  <div class="card-prices">
+                    <span class="price-before">880 د.م.</span>
+                    <span class="price-after">690 د.م.</span>
+                  </div>
+                  <button class="add-to-cart">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+                      <line x1="3" y1="6" x2="21" y2="6"/>
+                      <path d="M16 10a4 4 0 0 1-8 0"/>
+                    </svg>
+                    أضف
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
 
-          
-          <div class="product-card" data-name="قندورة صيفية خفيفة بالعقاد" data-price="290 د.م.">
-            <a href="product.html" class="card-media-link">
-              <div class="card-img" style="background-image: url('imgs/gandoura.png');"></div>
-              <div class="card-body">
-                <p class="card-name">قندورة صيفية خفيفة بالعقاد</p>
-              </div>
-            </a>
-            <div class="card-body" style="padding-top:0;">
-              <div class="card-pricing">
-                <div class="card-prices">
-                  <span class="price-before">380 د.م.</span>
-                  <span class="price-after">290 د.م.</span>
+            <div class="product-card" data-name="جبادور ملكي للمناسبات الرسمية" data-price="635 د.م.">
+              <a href="product.html" class="card-media-link">
+                <div class="card-img" style="background-image: url('imgs/jabadour.png');"></div>
+                <div class="card-body">
+                  <p class="card-name">جبادور ملكي للمناسبات الرسمية</p>
                 </div>
-                <button class="add-to-cart">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                       fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
-                    <line x1="3" y1="6" x2="21" y2="6"/>
-                    <path d="M16 10a4 4 0 0 1-8 0"/>
-                  </svg>
-                  أضف
-                </button>
+              </a>
+              <div class="card-body" style="padding-top:0;">
+                <div class="card-pricing">
+                  <div class="card-prices">
+                    <span class="price-before">800 د.م.</span>
+                    <span class="price-after">635 د.م.</span>
+                  </div>
+                  <button class="add-to-cart">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+                      <line x1="3" y1="6" x2="21" y2="6"/>
+                      <path d="M16 10a4 4 0 0 1-8 0"/>
+                    </svg>
+                    أضف
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
 
+            <div class="product-card" data-name="جبادور شبابي عصري بتطريز يدوي" data-price="760 د.م.">
+              <a href="product.html" class="card-media-link">
+                <div class="card-img" style="background-image: url('imgs/jabadour.png');"></div>
+                <div class="card-body">
+                  <p class="card-name">جبادور شبابي عصري بتطريز يدوي</p>
+                </div>
+              </a>
+              <div class="card-body" style="padding-top:0;">
+                <div class="card-pricing">
+                  <div class="card-prices">
+                    <span class="price-before">950 د.م.</span>
+                    <span class="price-after">760 د.م.</span>
+                  </div>
+                  <button class="add-to-cart">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+                      <line x1="3" y1="6" x2="21" y2="6"/>
+                      <path d="M16 10a4 4 0 0 1-8 0"/>
+                    </svg>
+                    أضف
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Browse all jabadours card -->
+            <a href="catalogue.html?cat=jabadours" class="collection-browse-card" aria-label="عرض جميع الجبادور">
+              <div class="browse-card-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"/>
+                  <polyline points="12 8 8 12 12 16"/>
+                  <line x1="16" y1="12" x2="8" y2="12"/>
+                </svg>
+              </div>
+              <p class="browse-card-title">عرض كل التشكيلة</p>
+              <p class="browse-card-subtitle">استكشف جميع تصاميم الجبادور</p>
+              <span class="browse-card-cta">تصفح الآن ←</span>
+            </a>
+
+          </div>
+          <div class="collection-bottom-controls">
+            <div class="collection-nav-arrows">
+              <button type="button" class="lane-arrow lane-arrow-prev" aria-label="السابق" title="السابق">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+              </button>
+              <button type="button" class="lane-arrow lane-arrow-next" aria-label="التالي" title="التالي">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+              </button>
+            </div>
+          </div>
+          <div class="collection-custom-scrollbar">
+            <div class="collection-scrollbar-track" role="scrollbar" aria-label="شريط التمرير للجبادور">
+              <div class="collection-scrollbar-thumb"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Column 4: Gandouras & Abayas Collection -->
+      <div class="collection-column" data-category="gandouras">
+        <div class="collection-column-header">
+          <div class="collection-header-text">
+            <div class="collection-title-row">
+              <h3 class="collection-column-title">تشكيلة القندورة والعبايات</h3>
+            </div>
+            <p class="collection-column-desc">فخامة وراحة مثالية في كل تفصيل للأمسيات والاستقبالات الأنيقة</p>
+          </div>
+          <div class="collection-header-actions">
+            <a href="catalogue.html?cat=gandouras" class="collection-browse-all-btn">
+              <span>تصفح كل التشكيلة</span>
+              <span class="btn-arrow">←</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="collection-scroll-wrapper">
+          <div class="collection-scroll-track">
+
+            <div class="product-card" data-name="قندورة سوداء ملكية بالطرز الفاسي" data-price="390 د.م.">
+              <a href="product.html" class="card-media-link">
+                <div class="card-img" style="background-image: url('imgs/gandoura-black.png');"></div>
+                <div class="card-body">
+                  <p class="card-name">قندورة سوداء ملكية بالطرز الفاسي</p>
+                </div>
+              </a>
+              <div class="card-body" style="padding-top:0;">
+                <div class="card-pricing">
+                  <div class="card-prices">
+                    <span class="price-before">490 د.م.</span>
+                    <span class="price-after">390 د.م.</span>
+                  </div>
+                  <button class="add-to-cart">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+                      <line x1="3" y1="6" x2="21" y2="6"/>
+                      <path d="M16 10a4 4 0 0 1-8 0"/>
+                    </svg>
+                    أضف
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="product-card" data-name="قندورة حريرية مريحة للمناسبات" data-price="340 د.م.">
+              <a href="product.html" class="card-media-link">
+                <div class="card-img" style="background-image: url('imgs/gandoura.png');"></div>
+                <div class="card-body">
+                  <p class="card-name">قندورة حريرية مريحة للمناسبات</p>
+                </div>
+              </a>
+              <div class="card-body" style="padding-top:0;">
+                <div class="card-pricing">
+                  <div class="card-prices">
+                    <span class="price-before">420 د.م.</span>
+                    <span class="price-after">340 د.م.</span>
+                  </div>
+                  <button class="add-to-cart">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+                      <line x1="3" y1="6" x2="21" y2="6"/>
+                      <path d="M16 10a4 4 0 0 1-8 0"/>
+                    </svg>
+                    أضف
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="product-card" data-name="عباية كيمونو عصرية بالطرز المغربي" data-price="450 د.م.">
+              <a href="product.html" class="card-media-link">
+                <div class="card-img" style="background-image: url('imgs/gandoura-black.png');"></div>
+                <div class="card-body">
+                  <p class="card-name">عباية كيمونو عصرية بالطرز المغربي</p>
+                </div>
+              </a>
+              <div class="card-body" style="padding-top:0;">
+                <div class="card-pricing">
+                  <div class="card-prices">
+                    <span class="price-before">580 د.م.</span>
+                    <span class="price-after">450 د.م.</span>
+                  </div>
+                  <button class="add-to-cart">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+                      <line x1="3" y1="6" x2="21" y2="6"/>
+                      <path d="M16 10a4 4 0 0 1-8 0"/>
+                    </svg>
+                    أضف
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="product-card" data-name="قندورة صيفية خفيفة بالعقاد" data-price="290 د.م.">
+              <a href="product.html" class="card-media-link">
+                <div class="card-img" style="background-image: url('imgs/gandoura.png');"></div>
+                <div class="card-body">
+                  <p class="card-name">قندورة صيفية خفيفة بالعقاد</p>
+                </div>
+              </a>
+              <div class="card-body" style="padding-top:0;">
+                <div class="card-pricing">
+                  <div class="card-prices">
+                    <span class="price-before">380 د.م.</span>
+                    <span class="price-after">290 د.م.</span>
+                  </div>
+                  <button class="add-to-cart">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+                      <line x1="3" y1="6" x2="21" y2="6"/>
+                      <path d="M16 10a4 4 0 0 1-8 0"/>
+                    </svg>
+                    أضف
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="product-card" data-name="عباية بشت مغربية فاخرة بتطريز ذهبي" data-price="475 د.م.">
+              <a href="product.html" class="card-media-link">
+                <div class="card-img" style="background-image: url('imgs/gandoura-black.png');"></div>
+                <div class="card-body">
+                  <p class="card-name">عباية بشت مغربية فاخرة بتطريز ذهبي</p>
+                </div>
+              </a>
+              <div class="card-body" style="padding-top:0;">
+                <div class="card-pricing">
+                  <div class="card-prices">
+                    <span class="price-before">610 د.م.</span>
+                    <span class="price-after">475 د.م.</span>
+                  </div>
+                  <button class="add-to-cart">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+                      <line x1="3" y1="6" x2="21" y2="6"/>
+                      <path d="M16 10a4 4 0 0 1-8 0"/>
+                    </svg>
+                    أضف
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Browse all gandouras card -->
+            <a href="catalogue.html?cat=gandouras" class="collection-browse-card" aria-label="عرض جميع القندورات والعبايات">
+              <div class="browse-card-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"/>
+                  <polyline points="12 8 8 12 12 16"/>
+                  <line x1="16" y1="12" x2="8" y2="12"/>
+                </svg>
+              </div>
+              <p class="browse-card-title">عرض كل التشكيلة</p>
+              <p class="browse-card-subtitle">استكشف جميع تصاميم القندورة والعبايات</p>
+              <span class="browse-card-cta">تصفح الآن ←</span>
+            </a>
+
+          </div>
+          <div class="collection-bottom-controls">
+            <div class="collection-nav-arrows">
+              <button type="button" class="lane-arrow lane-arrow-prev" aria-label="السابق" title="السابق">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+              </button>
+              <button type="button" class="lane-arrow lane-arrow-next" aria-label="التالي" title="التالي">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+              </button>
+            </div>
+          </div>
+          <div class="collection-custom-scrollbar">
+            <div class="collection-scrollbar-track" role="scrollbar" aria-label="شريط التمرير للقندورات">
+              <div class="collection-scrollbar-thumb"></div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -599,6 +922,6 @@
     </div>
   </aside>
 
-  <script src="script.js"></script>
+  <script src="script.js?v=2"></script>
 </body>
 </html>
